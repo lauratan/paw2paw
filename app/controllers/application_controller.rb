@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   end
 
   def turtle
-    params[:dates].each do |turtle|
-        Availabiliy.create!({date: turtle, sitter_id: current_id})
+    params[:dates].each do |date|
+        Availabiliy.create!({date: date, sitter_id: current_id})
     end
   end
 
