@@ -1,3 +1,27 @@
 // Place all the styles related to the sitters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+main section.sitter-index {
+    .sidebar .widget {
+        margin-bottom: 60px;
+    }
+    
+    .sidebar .widget-title {
+        color: #111;
+    }
+    
+    .widget .widget-title {
+        border-bottom: 1px dotted #c2c2c2;
+        font-size: 14px;
+        padding: 0 0 10px;
+        margin: 0 0 15px;
+    }
+    
+    .widget ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+}
+
