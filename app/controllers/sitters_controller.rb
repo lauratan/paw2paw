@@ -10,10 +10,11 @@ class SittersController < ApplicationController
 
   def new
     @sitter = Sitter.new
+    @user = User.all.first
   end
 
   def create
-    @product = Sitter.new(sitter_params)
+    @sitter = Sitter.new(sitter_params)
 
     if @sitter.save
       redirect_to [:sitters], notice: 'New sitter created!'
