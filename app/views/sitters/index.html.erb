@@ -36,13 +36,15 @@
                 </div>
               </div>
               <div class="col-sm-8 map-container">
-                   <div class="post">
-                      <div class="post-thumbnail">
-                        <a href="#">
-                          <img src="images/post-1.jpg" alt="Blog-post Thumbnail">
-                        </a>
-                      </div>
-                   </div>
+                <p><%= @sitter.name %></p>
+                <div id="map">
+                  <%= 
+                  map(:center => {
+                    :latlng => [49.2827290, -123.1207380],
+                    :zoom => 14.5
+                    })
+                  %>
+                </div>
               </div>
             </div>    
         </div>
@@ -62,5 +64,35 @@
         </footer>
       </div>
     <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+
+
+<script type='text/javascript'>
+
+  if (navigator.geolocation) {
+	  navigator.geolocation.getCurrentPosition(function(position){
+	  var latitude = position.coords.latitude;
+	  var longitude = position.coords.longitude;
+	  });
+
+	  map.locate({setView: true, maxZoom: 14.5});
+	  function onLocationFound(e) {
+
+		L.marker(e.latlng).addTo(map)
+    .bindPopup("You are here").openPopup();
+
+    L.marker(['<%=@sitter.latitude%>', '<%=@sitter.longitude%>']).addTo(map)
+    .bindPopup("Sitter 1");
+        
+	  }
+	  map.on('locationfound', onLocationFound);
+  }else {
+	  alert("Geolocation API is not supported in your browser. :(");
+  }
+</script>
+
+
+
+
+
 
 
