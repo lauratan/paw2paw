@@ -14,29 +14,10 @@
                   <h5 class="widget-title font-alt">Test for the Sidebar</h5>
                   <ul class="widget-posts">
                   <%= render @sitters %>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
                   </ul>
                 </div>
               </div>
               <div class="col-sm-8 map-container">
-                <p><%= @sitter.name %></p>
                 <div id="map">
                   <%= 
                   map(:center => {
@@ -79,9 +60,11 @@
 
 		L.marker(e.latlng).addTo(map)
     .bindPopup("You are here").openPopup();
-
-    L.marker(['<%=@sitter.latitude%>', '<%=@sitter.longitude%>']).addTo(map)
-    .bindPopup("Sitter 1");
+    
+    <% @sitters.each do |sitter| %>
+      L.marker([<%=sitter.latitude%>, <%=sitter.longitude%>]).addTo(map)
+      .bindPopup("This is Sitter : <%=sitter.name%>");
+    <% end %>
         
 	  }
 	  map.on('locationfound', onLocationFound);
