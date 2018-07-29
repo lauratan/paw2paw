@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
   def index
-    puts "db query"
-    puts Availability.all
-    puts "db query"
+    avails = Availability.where(sitter_id: 1)
+    @dates = Array.new
+    avails.each do |date|
+      @dates.push(date.avail_date)
+    end
     render 'application/avail'
   end
 
