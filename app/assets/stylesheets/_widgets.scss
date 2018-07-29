@@ -113,7 +113,7 @@
 /* Sidebar / Widget common*/
 .sidebar {
 	position: fixed;
-	width: 330px;
+	width: 350px;
 	overflow-y: scroll;
 	top: 75px;
 	bottom: 0;
@@ -196,5 +196,8 @@
 
 .map-container {
   margin-left: 455px;
-
+  height:580px; 
+  width:1000px;
+  padding-left: 0;
+  padding-right: 0;
 }

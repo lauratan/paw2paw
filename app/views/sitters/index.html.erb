@@ -14,36 +14,67 @@
                   <h5 class="widget-title font-alt">Test for the Sidebar</h5>
                   <ul class="widget-posts">
                   <%= render @sitters %>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
-                    <li>Test 1</li>
                   </ul>
                 </div>
               </div>
               <div class="col-sm-8 map-container">
-                   <div class="post">
-                      <div class="post-thumbnail">
-                        <a href="#">
-                          <img src="images/post-1.jpg" alt="Blog-post Thumbnail">
-                        </a>
-                      </div>
-                   </div>
+                <div id="map">
+                  <%= 
+                  map(:center => {
+                    :latlng => [49.2827290, -123.1207380],
+                    :zoom => 14.5
+                    })
+                  %>
+                </div>
               </div>
             </div>    
         </div>
         <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+
+
+<script type='text/javascript'>
+
+  if (navigator.geolocation) {
+	  navigator.geolocation.getCurrentPosition(function(position){
+	  var latitude = position.coords.latitude;
+	  var longitude = position.coords.longitude;
+	  });
+
+	  map.locate({setView: true, maxZoom: 14.5});
+	  function onLocationFound(e) {
+
+		L.marker(e.latlng).addTo(map)
+    .bindPopup("You are here").openPopup();
+    
+    <% @sitters.each do |sitter| %>
+      L.marker([<%=sitter.latitude%>, <%=sitter.longitude%>]).addTo(map)
+      .bindPopup("This is Sitter : <%=sitter.name%>");
+    <% end %>
+        
+	  }
+	  map.on('locationfound', onLocationFound);
+  }else {
+	  alert("Geolocation API is not supported in your browser. :(");
+  }
+</script>
+
+
+
+
+
+
