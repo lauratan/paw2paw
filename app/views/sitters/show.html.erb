@@ -1,5 +1,29 @@
-<section>
-  <div>
-  </div>
-</section>
-  
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="sidebar">
+            <div class="widget">
+                <h5 class="widget-title font-alt"><%= @sitter.name %></h5>
+                <ul class="widget-posts">
+                <li><%= @sitter.name %></li>
+                </ul>
+            </div>
+            </div>
+            <div class="col-sm-8 map-container">
+                <div class="post">
+                    <div class="post-thumbnail">
+                    <a href="#">
+                        <img src="images/post-1.jpg" alt="Blog-post Thumbnail">
+                    </a>
+                    </div>
+                </div>
+                <div class="post-title">
+                  <p><%= @sitter.summary %></p>
+                  <p><%= @sitter.rules %></p>
+                  <p><%= @sitter.price %></p>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <hr class="divider-d">
+    
