@@ -4,7 +4,8 @@
   <header> 
   <%= link_to sitter do %>
     # need to call the sitter with the user_id and use user.avatar to get the avatar 
-    # if I am correct, it should be sitter.user.avatar
+    # if I am correct, it should be sitter.user.avatar <-- this is not working
+    
     <h4> <%= sitter.name %></h4>
   <% end  %>
   </header>
@@ -17,4 +18,5 @@
     Details
   <% end %>
   </footer>
-
+</article>
+<hr class="divider-d">

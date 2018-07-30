@@ -12,14 +12,14 @@ users = User.create([
         last_name: 'Jones',
         email: 'alice@alice.com',
         password_digest: '1234',
-        avatar: ''
+        avatar: 'https://imgur.com/I80W1Q0.png'
     },
     {
         first_name: 'Bob',
         last_name: 'Bay',
         email: 'bob@bob.com',
         password_digest: '1234',
-        avatar: ''
+        avatar: 'https://imgur.com/I80W1Q0.png'
     },
     {
         first_name: 'Charlie',
