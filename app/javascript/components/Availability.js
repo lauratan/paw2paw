@@ -12,6 +12,8 @@ export default class Availability extends React.Component {
         finalResult: []
       }
 
+      console.log("🐢")
+      console.log(DayPicker);
       //Push each dates from db into an array (change selectedDays[] -> not a state?)
       this.props.dates.forEach( (date) => {
         this.state.selectedDays.push(date);
