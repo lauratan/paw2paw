@@ -6,31 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([
+users = User.create!([
     {
         first_name: 'Alice',
         last_name: 'Jones',
         email: 'alice@alice.com',
-        password_digest: '1234',
+        password: '1234',
+        password_confirmation: '1234',
         avatar: 'https://imgur.com/I80W1Q0.png'
     },
     {
         first_name: 'Bob',
         last_name: 'Bay',
         email: 'bob@bob.com',
-        password_digest: '1234',
+        password: '1234',
+        password_confirmation: '1234',
         avatar: 'https://imgur.com/I80W1Q0.png'
     },
     {
         first_name: 'Charlie',
         last_name: 'Compute',
         email: 'charlie@charlie.com',
-        password_digest: '1234',
+        password: '1234',
+        password_confirmation: '1234',
         avatar: 'https://imgur.com/I80W1Q0.png'
     }
 ])
 
-sitters = Sitter.create([
+
+sitters = Sitter.create!([
     {
         name: 'Alice',
         address: '198 W Hastings St. Vancouver, BC V6B 1H2',
@@ -53,7 +57,7 @@ sitters = Sitter.create([
     }
 ])
 
-availabilities = Availability.create([
+availabilities = Availability.create!([
     {
         sitter_id: 1,
         avail_date: '2018-08-09T19:00:00.000Z'

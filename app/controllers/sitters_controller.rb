@@ -21,6 +21,7 @@ class SittersController < ApplicationController
   end
 
   def create
+    @user = current_user
     @sitter = Sitter.new(sitter_params)
     @sitter.user_id = @user.id
     #to add img field for house pics
