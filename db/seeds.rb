@@ -24,7 +24,7 @@ users = User.create([
     {
         first_name: 'Charlie',
         last_name: 'Compute',
-        email: 'charlie@charlie.com',
+        email: "charlie@charlie.com",
         password_digest: '1234',
         avatar: ''
    }
