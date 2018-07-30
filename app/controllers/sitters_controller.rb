@@ -17,9 +17,8 @@ class SittersController < ApplicationController
     @user = current_user
     @sitter = Sitter.new(sitter_params)
     @sitter.user_id = @user.id
-    #to use geocoder to get lat/lng
     #to add img field for house pics
-
+    
     if @sitter.save
       redirect_to [:sitters], notice: 'New sitter created!'
     else
