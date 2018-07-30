@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email].downcase.strip)
     if user && user.authenticate_with_credentials(params[:email].downcase.strip, params[:password])
       session[:user_id] = user.id
-      redirect_to '/'
+      redirect_to sitters_path
     else
       redirect_to '/login/new'
     end
