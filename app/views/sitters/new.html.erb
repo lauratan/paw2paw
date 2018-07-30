@@ -17,7 +17,7 @@
 
           <div class="form-group">
             <%= form.label :name %>
-            <%= form.text_field :name, class: 'form-control' %>
+            <%= form.text_field :name , :value => "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
           </div>
 
           <div class="form-group">
@@ -38,21 +38,6 @@
           <div class="form-group">
             <%= form.label :price %>
             <%= form.text_field :price, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= form.label :latitude %>
-            <%= form.text_field :latitude, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= form.label :longitude %>
-            <%= form.text_field :longitude, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= form.label :user_id %>
-            <%= form.text_field :user_id, class: 'form-control' %>
           </div>
 
           <%= form.submit 'Become a Sitter', class: 'btn btn-primary' %>
