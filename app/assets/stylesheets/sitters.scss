@@ -2,6 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 main section.sitter-index {
+    .sitter {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      border:        1px solid #ccc;
+      border-radius: 5px;
+      padding:       15px;
+      padding-bottom: 80px;
+      margin-top:    20px;
+    }
+
+    header img {
+        max-width: 100%;
+        max-height: 140px;
+        margin: auto;
+        display: block;
+      }
+
+    // .sitter {
+    //   max-width: 260px;
+    //   position: relative;
+    //   border-style: dotted;
+    // }
+
     .sidebar .widget {
         margin-bottom: 60px;
     }

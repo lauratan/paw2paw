@@ -1,4 +1,6 @@
 class SittersController < ApplicationController
+  # I want to be able to use the user table's info to get the avatar
+  # @users = User.all.order(created_at: :desc)
   
   def index
     @sitters = Sitter.all.order(created_at: :desc)
