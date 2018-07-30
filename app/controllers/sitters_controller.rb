@@ -33,6 +33,22 @@ class SittersController < ApplicationController
     end
   end
 
+  def edit 
+    @user = current_user
+    if current_sitter 
+      @sitter = Sitter.find(params[:id])
+    end
+  end
+
+  def update
+    @sitter = Sitter.find(params[:id])
+    if @sitter.update(sitter_params)
+      redirect_to @sitter
+    else
+      render :edit
+    end
+  end
+
   private
 
   def sitter_params
