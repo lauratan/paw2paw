@@ -5,6 +5,11 @@ class SittersController < ApplicationController
   end
 
   def show
+    avails = Availability.where(sitter_id: 1)
+    @dates = Array.new
+    avails.each do |date|
+      @dates.push(date.avail_date)
+    end
     @sitter = Sitter.find params[:id]
   end
 

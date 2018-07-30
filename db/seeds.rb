@@ -55,24 +55,24 @@ sitters = Sitter.create([
 
 availabilities = Availability.create([
     {
-    sitter_id: 1,
-    avail_date: '2018-08-09T19:00:00.000Z'
+        sitter_id: 1,
+        avail_date: '2018-08-09T19:00:00.000Z'
     },
     {
-    sitter_id: 1,
-    avail_date: '2018-08-10T19:00:00.000Z'
+        sitter_id: 1,
+        avail_date: '2018-08-10T19:00:00.000Z'
     },
     {
-    sitter_id: 1,
-    avail_date: '2018-08-19T19:00:00.000Z'
+        sitter_id: 1,
+        avail_date: '2018-08-19T19:00:00.000Z'
     },
     {
-    sitter_id: 1,
-    avail_date: '2018-08-22T19:00:00.000Z'
+        sitter_id: 1,
+        avail_date: '2018-08-22T19:00:00.000Z'
     },
     {
-    sitter_id: 1,
-    avail_date: '2018-08-28T19:00:00.000Z'
+        sitter_id: 1,
+        avail_date: '2018-08-28T19:00:00.000Z'
     }
 ])
 
