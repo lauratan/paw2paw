@@ -8,8 +8,11 @@
                 <ul class="widget-posts">
                 <li><%= @sitter.name %></li>
                 </ul>
-            <%= react_component('Availability', {dates: @dates}) %>
             <button><%= link_to 'Booking', new_sitter_booking_path(@sitter.id) %></button>
+              <script> ReactRailsUJS.mountComponents()</script>
+              <div class="DayPicker" lang="en">
+              <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
+              </div>
             </div>
             </div>
             </section>

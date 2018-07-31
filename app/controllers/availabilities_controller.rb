@@ -12,11 +12,5 @@ skip_before_action :verify_authenticity_token
       end
     end
   end
-
-  private
-
-#   def avail_params
-#     params.require(:availability).permit(:dates).merge(sitter_id: current_sitter.id)
-#   end 
-
+  
 end

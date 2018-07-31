@@ -1,4 +1,5 @@
 <%= render 'form' %>
+<script> ReactRailsUJS.mountComponents()</script>
 <div>
-<%= react_component("Calendar", {sitter: @sitter.id}) %>
+<%= react_component("Calendar", {sitter: @sitter.id}, {prerender: true}) %>
 </div>
