@@ -3,10 +3,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @user = current_user
     avails = Availability.where(sitter_id: params[:sitter_id])
-    puts avails 
     @dates = Array.new
     avails.each do |date|
-      puts date.avail_date
       @dates.push(date.avail_date).sort!
     end
   end
