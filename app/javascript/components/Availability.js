@@ -13,12 +13,16 @@ export default class Availability extends React.Component {
       }
 
       console.log("🐢")
-      console.log(DayPicker);
       //Push each dates from db into an array (change selectedDays[] -> not a state?)
       this.props.dates.forEach( (date) => {
         this.state.selectedDays.push(date);
       })
-
+      console.log(this.state.selectedDays);      
+      console.log(this.state.year);
+      console.log(this.state.month);
+      console.log(this.state.day);
+      console.log(this.state.finalResult);
+      
       //Substring each date into y/m/d (refactor?)
       this.state.selectedDays.forEach( (date) => {
         this.state.year.push(date.substring(0, 4))
