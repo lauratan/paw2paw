@@ -8,7 +8,7 @@ class SittersController < ApplicationController
 
   def show
     @user = current_sitter
-    avails = Availability.where(sitter_id: @user.id)
+    avails = Availability.where(sitter_id: params[:id])
     @dates = Array.new
     avails.each do |date|
       puts date.avail_date
