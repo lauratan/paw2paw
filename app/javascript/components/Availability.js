@@ -17,11 +17,6 @@ export default class Availability extends React.Component {
       this.props.dates.forEach( (date) => {
         this.state.selectedDays.push(date);
       })
-      console.log(this.state.selectedDays);      
-      console.log(this.state.year);
-      console.log(this.state.month);
-      console.log(this.state.day);
-      console.log(this.state.finalResult);
       
       //Substring each date into y/m/d (refactor?)
       this.state.selectedDays.forEach( (date) => {
@@ -30,9 +25,9 @@ export default class Availability extends React.Component {
         this.state.day.push(date.substring(8, 10))
       })
 
-      //Show disabled days if not selected for one month prior
+      //Show disabled days if not selected since 1900
       this.state.finalResult.push({
-        after: new Date(2018, 5, 30),
+        after: new Date(1900, 0, 1),
         before: new Date()  
       })
 
@@ -53,10 +48,10 @@ export default class Availability extends React.Component {
         this.state.finalResult.push(result)
       }
 
-      //Show disabled days from the last avail date until the next month
+      //Show disabled days from the last avail date until next year
       this.state.finalResult.push({
         after: new Date(Number(this.state.year[this.state.year.length-1]), Number(this.state.month[this.state.year.length-1]) - 1, Number(this.state.day[this.state.year.length-1])),  
-        before: new Date(2018, Number(this.state.month[0]), 1)  
+        before: new Date(Number(this.state.year) + 2,  0, 1)  
       })
     }
 
