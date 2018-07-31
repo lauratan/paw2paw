@@ -7,7 +7,9 @@
                 <ul class="widget-posts">
                 <li><%= @sitter.name %></li>
                 </ul>
-            <%= react_component('Availability', {dates: @dates}) %>
+              <div class="DayPicker" lang="en">
+              <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
+              </div>
             </div>
             </div>
             <div class="col-sm-8 map-container">
