@@ -11,7 +11,6 @@ class SittersController < ApplicationController
     avails = Availability.where(sitter_id: params[:id])
     @dates = Array.new
     avails.each do |date|
-      puts date.avail_date
       @dates.push(date.avail_date).sort!
     end
     @sitter = Sitter.find params[:id]
