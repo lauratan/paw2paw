@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
 
   resources :sitters, only: [:index, :show, :new, :create, :update, :edit] do 
+    resources :bookings, only: [:new, :show, :create, :update, :edit] do
+      resources :availabilities, only: [:delete]
+    end
     resources :availabilities, only: [:create]
   end 
+
+  
 
   resources :users, only: [:new, :create]
 
