@@ -20,7 +20,7 @@ export default class Calendar extends React.Component {
 		selectedDays.splice(selectedIndex, 1);
 		} 
 		else {
-        selectedDays.push(day);
+        	selectedDays.push(day);
       	}
 		this.setState({ selectedDays });
 	}
