@@ -1,14 +1,14 @@
 html {
 	overflow-y: scroll;
 	overflow-x: hidden;
-	-ms-overflow-style: scrollbar;
+    -ms-overflow-style: scrollbar;
 }
 
 body {
 	background: #fff;
 	font: 400 12px/1.8 "Open Sans", sans-serif;
 	color: #666;
-	-webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -224,10 +224,10 @@ a,
 	margin: 0;
 }
 
-.divider-d {
-	border-top: 1px solid #202020;
-	margin: 0;
-}
+// .divider-d {
+// 	border-top: 1px solid #202020;
+// 	margin: 0;
+// }
 
 /* Half-image */
 

@@ -1,9 +1,9 @@
 .footer {
-	padding: 10px 0;
-	bottom: 0;
-	position: absolute;
-	z-index: 1000;
-	width: 100%;
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    bottom: 0;
+    z-index: 1000;
 	.copyright {
 		margin: 0;
 	}
