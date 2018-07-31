@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2018_07_30_025930) do
     t.integer "user_id"
     t.integer "sitter_id"
     t.date "booked_date"
+    t.string "dog_breed"
+    t.string "dog_size"
+    t.integer "dog_age"
+    t.string "dog_gender"
+    t.string "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
