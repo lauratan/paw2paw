@@ -7,10 +7,12 @@ class SittersController < ApplicationController
   end
 
   def show
-    avails = Availability.where(sitter_id: 1)
+    @user = current_sitter
+    avails = Availability.where(sitter_id: @user.id)
     @dates = Array.new
     avails.each do |date|
-      @dates.push(date.avail_date)
+      puts date.avail_date
+      @dates.push(date.avail_date).sort!
     end
     @sitter = Sitter.find params[:id]
   end
@@ -46,8 +48,9 @@ class SittersController < ApplicationController
       redirect_to @sitter
     else
       render :edit
-    end
+    end 
   end
+
 
   private
 
@@ -57,7 +60,7 @@ class SittersController < ApplicationController
       :address,
       :summary,
       :rules,
-      :price,
+      :price
     )
   end
 

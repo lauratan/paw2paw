@@ -22,11 +22,11 @@ export default class Calendar extends React.Component {
 		else {
         selectedDays.push(day);
       	}
-      	this.setState({ selectedDays });
+		this.setState({ selectedDays });
 	}
 	
-    handleSubmitClick(){
-        fetch('/calendar', {
+    handleSubmitClick(props){
+        fetch(`/sitters/${this.props.sitter}/availabilities`, {
             method: "POST",
             body: JSON.stringify({dates: this.state.selectedDays}),
             headers: {
