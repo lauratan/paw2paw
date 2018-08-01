@@ -5,10 +5,13 @@ export default class Booking extends React.Component {
     constructor(props){
       super(props);
       this.handleDayClick = this.handleDayClick.bind(this);
+      this.handleSubmitClick = this.handleSubmitClick.bind(this);      
       this.state = {
         finalResult: [],
-        selectedDays: [],
+        selectedDays: []
       }
+
+      
 
       let availDays = [];
       let year = [];
@@ -71,7 +74,7 @@ export default class Booking extends React.Component {
     }
 
     handleSubmitClick(props){
-      fetch(`/sitters/${this.props.sitter}/bookings`, {
+      fetch(`/sitters/${this.props.sitter_id}/bookings/${this.props.booking_id}/booking_dates`, {
           method: "POST",
           body: JSON.stringify({dates: this.state.selectedDays}),
           headers: {
