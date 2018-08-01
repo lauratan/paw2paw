@@ -17,14 +17,30 @@
             </div>
             </section>
             <div class="col-sm-8 map-container">
-              <div class="post-title">
-                
-              </div>
-                <div class="post-title">
-                  <p><%= @sitter.summary %></p>
-                  <p><%= @sitter.rules %></p>
-                  <p><%= @sitter.price %></p>
+              <div class="post">  
+                <div class="post-images-slider">
+                  <div class="flex-viewport" style="overflow: hidden; position: relative; height: 270.25px;">
+                  <ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(-750px, 0px, 0px);">
+                    <li class="clone" aria-hidden="true" style="width: 750px; margin-right: 0px; float: left; display: block;">
+                      <%= image_tag "dog1.jpg", alt:"Blog Slider Image", draggable:"false" %>
+                    </li>
+                    <li class="flex-active-slide" data-thumb-alt style="width: 750px; margin-right: 0px; float: left; display: block;">
+                      <%= image_tag "dog1.jpg", alt:"Blog Slider Image", draggable:"false" %>
+                    </li>
+                    <li data-thumb-alt style="width: 750px; margin-right: 0px; float: left; display: block;" >
+                      <%= image_tag "dog1.jpg", alt:"Blog Slider Image", draggable:"false" %>
+                    </li>
+                    <li class="clone" aria-hidden="true" style="width: 750px; margin-right: 0px; float: left; display: block;">
+                      <%= image_tag "dog1.jpg", alt:"Blog Slider Image", draggable:"false" %>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+              <div class="post-title">
+                <p><%= @sitter.summary %></p>
+                <p><%= @sitter.rules %></p>
+                <p><%= @sitter.price %></p>
+              </div>
             </div>
         </div>    
     </div>
