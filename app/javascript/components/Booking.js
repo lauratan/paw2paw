@@ -1,8 +1,6 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
-import { Redirect, Router,  } from 'react-router';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom'
+
 export default class Booking extends React.Component {
     constructor(props){
       super(props);
