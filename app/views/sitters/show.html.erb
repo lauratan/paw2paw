@@ -11,14 +11,14 @@
             <button><%= link_to 'Booking', new_sitter_booking_path(@sitter.id) %></button>
               <script> ReactRailsUJS.mountComponents()</script>
               <div class="DayPicker" lang="en">
+              <script type="application/javascript"> alert("I'm in show!")</script>
               <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
               </div>
             </div>
             </div>
             </section>
             <div class="col-sm-8 map-container">
-              <div class="post-title">
-                
+              <div class="post-title">    
               </div>
                 <div class="post-title">
                   <p><%= @sitter.summary %></p>

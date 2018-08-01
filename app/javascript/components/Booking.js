@@ -1,6 +1,8 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
-
+import { Redirect, Router,  } from 'react-router';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom'
 export default class Booking extends React.Component {
     constructor(props){
       super(props);
@@ -8,10 +10,10 @@ export default class Booking extends React.Component {
       this.handleSubmitClick = this.handleSubmitClick.bind(this);      
       this.state = {
         finalResult: [],
-        selectedDays: []
+        selectedDays: [],
+        redirect: false,
+        url: '',
       }
-
-      
 
       let availDays = [];
       let year = [];
@@ -74,16 +76,44 @@ export default class Booking extends React.Component {
     }
 
     handleSubmitClick(props){
+      console.log('handlesubmitclicked')
       fetch(`/sitters/${this.props.sitter_id}/bookings/${this.props.booking_id}/booking_dates`, {
           method: "POST",
           body: JSON.stringify({dates: this.state.selectedDays}),
           headers: {
               "Content-Type": "application/json; charset=utf-8"
           }
+      }).then((res)=> {
+
+        console.log(res)
+        if (res) {
+          this.setState({url: res.url})
+          this.setState({redirect: true})
+        }
       })
     } 
 
     render() {
+      const {redirect, url} = this.state;
+      console.log('redirect', redirect, 'url', url);
+      if (redirect){
+        console.log('please redirect me')
+      const element = (<h1>Hello world</h1>);
+      React.render(element, document.createElement('div'));
+        //ReactDOM.render(element, document.getElementById('root'));
+        //return <Redirect to='/sitters/1' />
+        // return 
+        // (<Router>
+        //   <Redirect to={url}/>
+        // </Router>)
+    //     return ReactDOM.render((
+    //       <BrowserRouter>
+    //            <Route path="/sitters/1"/>
+    //       </BrowserRouter>
+    //       ),
+    //       document.getElementById('root')
+    //  );
+      }
       return (
         <div>
           <DayPicker
