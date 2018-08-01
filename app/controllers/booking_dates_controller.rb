@@ -11,8 +11,12 @@ class BookingDatesController < ApplicationController
     end
   end
 
+  def show
+  end 
+
   def create
     @alldates = Array.new
+    @sitter_id = params[:sitter_id]
 
     params[:dates].each do |date|
       puts date
@@ -20,16 +24,13 @@ class BookingDatesController < ApplicationController
       @alldates.push(date)
     end
 
-
     @alldates.each do |date|
-        @booking_date = BookingDate.new({
+        @booking_date = BookingDate.create!({
           booking_id: params[:booking_id].to_i ,
           date: date
         })
-        @booking_date.save!
-
-        
       end
+      redirect_to sitters_path
   end 
 
 end
