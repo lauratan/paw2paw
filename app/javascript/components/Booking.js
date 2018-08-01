@@ -84,36 +84,11 @@ export default class Booking extends React.Component {
               "Content-Type": "application/json; charset=utf-8"
           }
       }).then((res)=> {
-
-        console.log(res)
-        if (res) {
-          this.setState({url: res.url})
-          this.setState({redirect: true})
-        }
+        window.location.href = res.url
       })
     } 
 
     render() {
-      const {redirect, url} = this.state;
-      console.log('redirect', redirect, 'url', url);
-      if (redirect){
-        console.log('please redirect me')
-      const element = (<h1>Hello world</h1>);
-      React.render(element, document.createElement('div'));
-        //ReactDOM.render(element, document.getElementById('root'));
-        //return <Redirect to='/sitters/1' />
-        // return 
-        // (<Router>
-        //   <Redirect to={url}/>
-        // </Router>)
-    //     return ReactDOM.render((
-    //       <BrowserRouter>
-    //            <Route path="/sitters/1"/>
-    //       </BrowserRouter>
-    //       ),
-    //       document.getElementById('root')
-    //  );
-      }
       return (
         <div>
           <DayPicker

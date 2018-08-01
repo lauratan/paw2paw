@@ -17,12 +17,12 @@ class BookingDatesController < ApplicationController
   def create
     @alldates = Array.new
     @sitter_id = params[:sitter_id]
+
     params[:dates].each do |date|
       puts date
       @user_id = params[:user_id]
       @alldates.push(date)
     end
-
 
     @alldates.each do |date|
         @booking_date = BookingDate.create!({
@@ -30,7 +30,7 @@ class BookingDatesController < ApplicationController
           date: date
         })
       end
-      redirect_to sitter_path(@sitter_id)
+      redirect_to sitters_path
   end 
 
 end
