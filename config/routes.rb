@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :sitters, only: [:index, :show, :new, :create, :update, :edit] do 
     resources :bookings, only: [:new, :show, :create, :update, :edit] do
       resources :availabilities, only: [:delete]
+      resources :booking_dates, only: [:new, :create] 
+      
     end
     resources :availabilities, only: [:create]
   end 

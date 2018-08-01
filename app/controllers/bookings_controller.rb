@@ -1,32 +1,23 @@
 class BookingsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def new
-    @booking = Booking.new
+    @sitter = Sitter.find(params[:sitter_id])
     @user = current_user
-    avails = Availability.where(sitter_id: params[:sitter_id])
-    @dates = Array.new
-    avails.each do |date|
-      @dates.push(date.avail_date).sort!
-    end
   end
 
   def create
-    @user = current_user
-    
     @sitter = Sitter.find params[:sitter_id]
+    @user = User.find_by(email: params[:booking][:email])
 
-    @booking = Booking.new(booking_params)
-    @booking.sitter_id = @sitter.id
-    @booking.user_id = current_user.id
-    
-      if @booking.save 
-        redirect_to sitter_path(@booking.sitter_id), notice: 'The booking request has sent to the sitter'
-      end
+    @booking = Booking.new({
+      user_id: @user.id,
+      sitter_id: @sitter.id
+    })
+
+    if @booking.save! 
+      redirect_to new_sitter_booking_booking_date_path(@sitter.id, @booking.id), notice: 'The booking request has been sent to the sitter'
     end
-
-    private
-
-    def booking_params
-      params.require(:booking).permit(:date)
-    end
+  end
 
 end
