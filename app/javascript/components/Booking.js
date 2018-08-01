@@ -1,6 +1,8 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
-
+import { Redirect, Router,  } from 'react-router';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom'
 export default class Booking extends React.Component {
     constructor(props){
       super(props);
@@ -8,10 +10,10 @@ export default class Booking extends React.Component {
       this.handleSubmitClick = this.handleSubmitClick.bind(this);      
       this.state = {
         finalResult: [],
-        selectedDays: []
+        selectedDays: [],
+        redirect: false,
+        url: '',
       }
-
-      
 
       let availDays = [];
       let year = [];
@@ -74,12 +76,15 @@ export default class Booking extends React.Component {
     }
 
     handleSubmitClick(props){
+      console.log('handlesubmitclicked')
       fetch(`/sitters/${this.props.sitter_id}/bookings/${this.props.booking_id}/booking_dates`, {
           method: "POST",
           body: JSON.stringify({dates: this.state.selectedDays}),
           headers: {
               "Content-Type": "application/json; charset=utf-8"
           }
+      }).then((res)=> {
+        window.location.href = res.url
       })
     } 
 
