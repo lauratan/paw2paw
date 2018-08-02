@@ -1,12 +1,15 @@
 class User < ApplicationRecord
+    has_many :bookings
+    has_many :sitters, through: :bookings
+
   has_secure_password
 	before_validation :downcase_email
 
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :email, presence: true, uniqueness: true, :case_sensitive => false
-	validates :password_digest, presence: true
 	validates :password, :password_confirmation, length: { minimum: 4 }
+	validates :password_digest, presence: true
 	validates :avatar, allow_blank: true, format: {
 		with: %r{\.gif|jpg|png}i,
 		message: 'Must be a url for gif, jpg, or png image.'
