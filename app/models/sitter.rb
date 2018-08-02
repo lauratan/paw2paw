@@ -1,7 +1,14 @@
 class Sitter < ApplicationRecord
-  validates :name, :address, :summary, :rules, :price, :user_id, presence: true
-  has_many :photos
-  geocoded_by :address
-  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
-
+    has_many :availabilities
+    has_many :photos
+    has_many :bookings
+    has_many :users, through: :bookings
+    belongs_to :user
+    
+    validates :name, :address, :summary, :rules, :user_id, presence: true
+    validates :price, numericality: true
+    
+    geocoded_by :address
+    after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+    
 end

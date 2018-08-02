@@ -2,20 +2,24 @@
     <div class="container">
         <div class="row">
             <div class="sidebar">
-            <div class="widget">
-            <section class="sitter-index">
-                <h5 class="widget-title font-alt"><%= @sitter.name %></h5>
-                <ul class="widget-posts">
-                <li><%= @sitter.name %></li>
-                </ul>
-            <button><%= link_to 'Booking', new_sitter_booking_path(@sitter.id) %></button>
-              <script> ReactRailsUJS.mountComponents()</script>
-              <div class="DayPicker" lang="en">
-              <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
-              </div>
+                <div class="widget">
+                    <section class="sitter-index">
+                        <h5 class="widget-title font-alt"><%= @sitter.name %></h5>
+
+                        <ul class="widget-posts">
+                            <li><%= @sitter.name %></li>
+                        </ul>
+                        <button><%= link_to 'Booking', new_sitter_booking_path(@sitter.id) %></button>
+
+                        <script> ReactRailsUJS.mountComponents() </script>
+
+                        <div class="DayPicker" lang="en">
+                            <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
+                        </div>
+
+                    </section>
+                </div>
             </div>
-            </div>
-            </section>
             <div class="col-sm-8 map-container">
               <div class="post-title">    
               </div>
@@ -27,5 +31,5 @@
             </div>
         </div>    
     </div>
-    <hr class="divider-d">
+</div>
     
