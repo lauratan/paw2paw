@@ -36,7 +36,7 @@ users = User.create!([
 
 sitters = Sitter.create!([
     {
-        name: 'Alice',
+        name: 'Alice Jones',
         address: '198 W Hastings St. Vancouver, BC V6B 1H2',
         summary: "I've been a dog mom for 5 years, I love doggies.",
         rules: 'Prefer small and medium dogs',
@@ -46,7 +46,7 @@ sitters = Sitter.create!([
         user_id: 1
     },
     {
-        name: 'Charlie',
+        name: 'Charlie Compute',
         address: 'Eihu Lane, Vancouver, BC V6G, Canada',
         summary: "I've been a dog mom for 3 years, I love doggies.",
         rules: 'Prefer small dog',
