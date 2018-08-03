@@ -19,10 +19,21 @@ class BookingsController < ApplicationController
 
   def index
     if current_sitter 
-      @sitter = Sitter.find params[:sitter_id]
+      @sitter = Sitter.find(params[:sitter_id])
     end 
-    @bookings = Booking.where(sitter_id: @sitter.id)
+    @bookings = Booking.where(sitter_id: @sitter.id).order(created_at: :desc)
+  end
 
+  def accept
+    @booking = Booking.find_by(id: params[:booking_id])
+    @booking.update!(:status => 'Accepted')
+    redirect_to sitter_bookings_path(@booking.sitter_id)
+  end
+  
+  def reject
+    @booking = Booking.find_by(id: params[:booking_id])
+    @booking.update!(:status => 'Rejected')
+    redirect_to sitter_bookings_path(@booking.sitter_id)
   end
 
   private

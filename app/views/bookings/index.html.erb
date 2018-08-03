@@ -1,10 +1,36 @@
 <div class="main">
   <div class="container">
     <div class="row">
+      <div class="sitter-pending">
         <% @bookings.each do |booking| %>
-          <p><%= booking.dog_breed %></p>
+          <p><%= booking.dog_name %></p>
+          <p><%= booking.created_at %></p>          
+          <p><%= booking.status %></p>
+
+          <%= link_to sitter_booking_path(params[:sitter_id], booking.id) do %>
+          Details
+          <% end %>
+
+          <%= link_to "Accept", sitter_booking_accept_path(params[:sitter_id], booking.id), method: :patch %>
+          <%= link_to "Reject", sitter_booking_reject_path(params[:sitter_id], booking.id), method: :patch %>
+
         <% end %>
-        
+      </div>
+      <div class="sitter-accept">
+        <% @bookings.each do |booking| %>
+          <p><%= booking.status %></p>
+        <% end %>
+      </div>
+      <div class="sitter-complete">
+        <% @bookings.each do |booking| %>
+          <p><%= booking.status %></p>
+        <% end %>
+      </div>
+      <div class="sitter-incomplete">
+        <% @bookings.each do |booking| %>
+          <p><%= booking.status %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
