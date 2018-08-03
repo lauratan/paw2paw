@@ -30,6 +30,14 @@ users = User.create!([
         password: '1234',
         password_confirmation: '1234',
         avatar: 'https://imgur.com/I80W1Q0.png'
+    },
+    {
+        first_name: 'Ruby',
+        last_name: 'Rails',
+        email: 'ruby@ruby.com',
+        password: '1234',
+        password_confirmation: '1234',
+        avatar: 'https://imgur.com/I80W1Q0.png'
     }
 ])
 
@@ -77,7 +85,81 @@ availabilities = Availability.create!([
     {
         sitter_id: 1,
         avail_date: '2018-08-28T19:00:00.000Z'
+    },
+    {
+        sitter_id: 2,
+        avail_date: '2018-08-08T19:00:00.000Z'
+    },
+    {
+        sitter_id: 2,
+        avail_date: '2018-08-09T19:00:00.000Z'
+    },
+    {
+        sitter_id: 2,
+        avail_date: '2018-08-10T19:00:00.000Z'
+    },
+    {
+        sitter_id: 2,
+        avail_date: '2018-08-11T19:00:00.000Z'
+    },
+    {
+        sitter_id: 2,
+        avail_date: '2018-08-12T19:00:00.000Z'
     }
 ])
+
+bookings = Booking.create!([
+    {
+        user_id: 2,
+        sitter_id: 2,
+        dog_name: 'Cooper',
+        dog_breed: 'Golden Retriever',
+        dog_size: 'Huge',
+        dog_age: 2,
+        dog_gender: 'Male',
+        info: 'Super cute!',
+        status: 'Pending'
+
+    },
+    {
+        user_id: 4,
+        sitter_id: 2,
+        dog_name: 'Franklin',
+        dog_breed: 'Poodle',
+        dog_size: 'Mini',
+        dog_age: 3,
+        dog_gender: 'Male',
+        info: 'Super energized, loves running, have long legs!',
+        status: 'Pending'
+    }
+])
+
+booking_dates = BookingDate.create!([
+    {
+        booking_id: 1,
+        date: '2018-08-08'
+    },
+    {
+        booking_id: 1,
+        date: '2018-08-09'
+    },
+    {
+        booking_id: 1,
+        date: '2018-08-10'
+    },
+    {
+        booking_id: 2,
+        date: '2018-08-11'
+    },
+    {
+        booking_id: 2,
+        date: '2018-08-11'
+    },
+    {
+        booking_id: 2,
+        date: '2018-08-12'
+    }
+])
+
 
 puts 'SEED DONE'
