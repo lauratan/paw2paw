@@ -17,6 +17,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    if current_sitter 
+      @sitter = Sitter.find params[:sitter_id]
+    end 
+    @bookings = Booking.where(sitter_id: @sitter.id)
+
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params

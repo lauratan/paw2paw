@@ -32,11 +32,13 @@ ActiveRecord::Schema.define(version: 2018_07_31_190900) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "sitter_id"
+    t.string "dog_name"
     t.string "dog_breed"
     t.string "dog_size"
     t.integer "dog_age"
     t.string "dog_gender"
     t.string "info"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
