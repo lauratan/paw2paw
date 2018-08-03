@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 
     if current_sitter 
       @sitter = Sitter.find(params[:sitter_id])
-      @bookings = Booking.where(sitter_id: @sitter.id).order(created_at: :desc)
+      @bookings = Booking.where(sitter_id: @sitter.id).order(updated_at: :desc)
       if current_sitter != @sitter
         redirect_to sitters_path
       end
