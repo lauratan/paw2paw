@@ -49,6 +49,11 @@ class BookingsController < ApplicationController
     redirect_to sitter_bookings_path(@booking.sitter_id)
   end
 
+  def show
+    @booking = Booking.find_by(id: params[:id])
+    @owner = User.find_by(id: @booking.user_id)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
