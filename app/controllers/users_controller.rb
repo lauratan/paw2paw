@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     end 
   end
 
+  def bookings_show
+    @booking = Booking.find_by(id: params[:id])
+    @sitter = Sitter.find_by(id: @booking.sitter_id)
+  end
+
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
