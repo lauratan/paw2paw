@@ -2,18 +2,18 @@
   <div class="container">
     <div class="row">
 
-      <div class="sitter-booking-details">
+      <div class="user-booking-details">
         <h5 class="font-alt">Booking Details Page</h5>
         <hr class="divider-w mb-10">
 
-        <p><%= "#{@owner.first_name} #{@owner.last_name}" %></p>  
+        <p><%= @sitter.name %></p>  
         <p><%= @booking.dog_name %></p>
         <p><%= @booking.dog_breed %></p>  
         <p><%= @booking.dog_size %></p>  
         <p><%= @booking.dog_age %></p>  
         <p><%= @booking.dog_gender %></p> 
         <p><%= @booking.info %></p>  
-        <p><%= @booking.status %></p>  
+        <p><%= @booking.status %></p>
 
       </div>
 

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   
   resources :users, only: [:new, :create] do
-    resources :bookings, only: [:index]
+    resources :bookings, except: [:index, :show, :create, :new, :update, :edit, :destroy]
+    get :bookings_index, path: 'bookings'
+    get :bookings_show, path: 'bookings/:id'
   end 
 
   resources :sitters, only: [:index, :show, :new, :create, :update, :edit] do 
