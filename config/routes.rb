@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :new, :show, :create, :edit] do
       patch :accept
       patch :reject
+      patch :complete
+      patch :incomplete
       resources :availabilities, only: [:delete]
       resources :booking_dates, only: [:new, :create] 
       

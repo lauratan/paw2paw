@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @user = User.find_by(email: params[:booking][:email])
 
     @booking = Booking.new(booking_params)
+    @booking.status = 'Pending'
 
     if @booking.save! 
       redirect_to new_sitter_booking_booking_date_path(@sitter.id, @booking.id), notice: 'The booking request has been sent to the sitter'
@@ -36,10 +37,23 @@ class BookingsController < ApplicationController
     redirect_to sitter_bookings_path(@booking.sitter_id)
   end
 
+  def complete
+    @booking = Booking.find_by(id: params[:booking_id])
+    @booking.update!(:status => 'Completed')
+    redirect_to sitter_bookings_path(@booking.sitter_id)
+  end
+
+  def incomplete
+    @booking = Booking.find_by(id: params[:booking_id])
+    @booking.update!(:status => 'Incomplete')
+    redirect_to sitter_bookings_path(@booking.sitter_id)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       params.require(:booking).permit(
+        :dog_name,
         :dog_breed, 
         :dog_size, 
         :dog_age, 
