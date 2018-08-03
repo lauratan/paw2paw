@@ -18,11 +18,19 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index
+  def index   #sitter_index?
+    #GET sitter_booking route
+
     if current_sitter 
       @sitter = Sitter.find(params[:sitter_id])
+      @bookings = Booking.where(sitter_id: @sitter.id).order(created_at: :desc)
+      if current_sitter != @sitter
+        redirect_to sitters_path
+      end
+    else
+      redirect_to sitters_path
     end 
-    @bookings = Booking.where(sitter_id: @sitter.id).order(created_at: :desc)
+
   end
 
   def accept
