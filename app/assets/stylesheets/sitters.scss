@@ -1,52 +1,40 @@
 // Place all the styles related to the sitters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-main section.sitter-index {
-    .sitter {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      border:        1px solid #ccc;
-      border-radius: 5px;
-      padding:       15px;
-      padding-bottom: 80px;
-      margin-top:    20px;
-    }
-
-    header img {
-        max-width: 100%;
-        max-height: 140px;
-        margin: auto;
-        display: block;
-      }
-
-    // .sitter {
-    //   max-width: 260px;
-    //   position: relative;
-    //   border-style: dotted;
-    // }
-
-    .sidebar .widget {
-        margin-bottom: 60px;
-    }
-    
-    .sidebar .widget-title {
-        color: #111;
-    }
-    
-    .widget .widget-title {
-        border-bottom: 1px dotted #c2c2c2;
-        font-size: 14px;
-        padding: 0 0 10px;
-        margin: 0 0 15px;
-    }
-    
-    .widget ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    
+.sidebar-sitter-details {
+    position: relative;
+    float: left;
+    height: 85vh;
+    overflow-y: scroll;
+    top: 10px;
+    bottom: 0;
+    padding-right: 5px;
+    padding-left: 10px;
+}
+.sidebar-sitter-details .widget {
+	margin-bottom: 60px;
 }
 
+.sidebar-sitter-details .widget-title {
+	color: #111;
+}
+
+.widget .widget-title {
+	border-bottom: 1px dotted #c2c2c2;
+	font-size: 14px;
+	padding: 0 0 10px;
+	margin: 0 0 15px;
+}
+
+.widget ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.sitter-avatar {
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
