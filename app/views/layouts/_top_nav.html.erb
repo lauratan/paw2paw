@@ -8,8 +8,8 @@
       <% if current_user && !current_sitter %>
       <li class="dropdown"><%= link_to 'Become A Sitter', new_sitter_path %></li>
       <li class="dropdown"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-      <li class="dropdown"><%= current_user.first_name %></li>
-      <li><%= image_tag current_user.avatar %></li>
+      <li class="dropdown"><%= link_to current_user.first_name, user_bookings_index_path(current_user.id)%></li>
+      <span><%= link_to image_tag(current_user.avatar, :style => "width: 35px"), user_bookings_index_path(current_user.id)%></span>
       <% elsif current_sitter %>
         <li class="dropdown">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sitter Menu</a>
