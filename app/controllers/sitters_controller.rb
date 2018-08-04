@@ -4,9 +4,7 @@ class SittersController < ApplicationController
   
   def index
     @sitters = Sitter.all.order(created_at: :desc)
-    @sitters.each do |sitter|
-      @user = User.find_by(id: sitter.user_id)
-    end
+    
   end
 
   def show
