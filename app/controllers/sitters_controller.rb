@@ -4,6 +4,7 @@ class SittersController < ApplicationController
   
   def index
     @sitters = Sitter.all.order(created_at: :desc)
+    
   end
 
   def show
