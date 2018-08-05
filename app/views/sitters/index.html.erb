@@ -42,7 +42,7 @@
     <% @sitters.each do |sitter| %>
     <% @user = User.find_by(id: sitter.user_id) %>
       L.marker([<%=sitter.latitude%>, <%=sitter.longitude%>]).addTo(map)
-      .bindPopup("<a href='sitters/<%=sitter.id%>'/> <img src=<%=@user.avatar%> style='width:35px'/> <%=sitter.name%> \n<br/> Address: <%=sitter.address%> \n<br/> Summary: <%=sitter.summary%> ");
+      .bindPopup("<a id='popup-link' href='sitters/<%=sitter.id%>'/> <img src=<%=@user.avatar%> style='width:35px'/> <%=sitter.name%> \n<br/> Address: <%=sitter.address%> \n<br/> Summary: <%=sitter.summary%> ");
     <% end %>
         
 	  }
