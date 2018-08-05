@@ -5,7 +5,7 @@
             <h4 class="font-alt">Become A Sitter</h4>
             <hr class="divider-w mb-10">     
 
-            <%= form_for :sitter, url: '/sitters', class: "form" do |form| %>
+            <%= form_for :sitter, url: sitters_path, class: "form" do |form| %>
 
             <div>
               <% if @sitter.errors.any? %>
