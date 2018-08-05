@@ -3,6 +3,7 @@
     <div class="row-scroll">
       
         <div class="user-pending">
+      <% if !(@bookings.empty?) %> 
         <h5 class="font-alt">Pending Tab</h5>
         <hr class="divider-w mb-10">
         
@@ -89,7 +90,12 @@
           <% end %>
         <% end %>
       </div>
-
+      <% else %>
+      <h5 class="font-alt">Bookings</h5>
+        <div class="alert alert-danger" role="alert">
+        Currently, there is no booking
+        </div>
+     <% end %>
     </div>
   </div>
 </div>

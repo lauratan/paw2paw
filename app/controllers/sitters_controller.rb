@@ -15,13 +15,14 @@ class SittersController < ApplicationController
       @dates.push(date.avail_date).sort!
     end
     @sitter = Sitter.find params[:id]
+    @photos = Photo.where(sitter_id: @sitter.id)
   end
 
   def new
     @sitter = Sitter.new
     @user = current_user
     if current_sitter 
-      redirect_to sitter_path(current_sitter.id) 
+      redirect_to new_sitter_photo_path(current_sitter.id) 
     end 
   end
 

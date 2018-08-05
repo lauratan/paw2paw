@@ -17,7 +17,7 @@
 
                         <div class="DayPicker" lang="en">
                             <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
-                            <% if (current_sitter.id != @sitter.id) %>
+                            <% if !current_sitter || (current_sitter.id != @sitter.id) %>
                             <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button">Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
                             <% end%>
                         </div>
@@ -32,6 +32,11 @@
                   <p><%= @sitter.summary %></p>
                   <p><%= @sitter.rules %></p>
                   <p><%= @sitter.price %></p>
+                </div>
+                <div class="sitter-photos">
+                  <% @photos.each do |photo| %>
+                    <%= image_tag photo.photo_url %>
+                  <% end %>
                 </div>
             </div>
         </div>    
