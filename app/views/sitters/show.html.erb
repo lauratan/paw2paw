@@ -14,13 +14,21 @@
                         </ul>
                         <br>
                         <script> ReactRailsUJS.mountComponents() </script>
-
+                          
                         <div class="DayPicker" lang="en">
                             <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
-                            <% if !current_sitter || (current_sitter.id != @sitter.id) %>
-                            <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button">Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
+                            <% if current_user %> 
+                              <% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
+                                <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button">Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
+                              <% end %>
+                            <% else %>
+                              <div class="alert alert-info" role="alert">
+                                <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to make a booking with <%= @user.first_name %>!
+                              </div>      
                             <% end%>
+
                         </div>
+                        
 
                     </section>
                 </div>
