@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   def new
     @sitter = Sitter.find(params[:sitter_id])
     @user = current_user
-    
+    @booking = Booking.new
   end
 
   def create
@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
 
     if @booking.save
       redirect_to new_sitter_booking_booking_date_path(@sitter.id, @booking.id), notice: 'The booking request has been sent to the sitter'
+    else
+      render :new
     end
   end
 
