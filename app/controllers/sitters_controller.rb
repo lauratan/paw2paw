@@ -33,7 +33,7 @@ class SittersController < ApplicationController
     #to add img field for house pics
     
     if @sitter.save
-      redirect_to sitter_path(@sitter.id), notice: 'New sitter created!'
+      redirect_to new_sitter_photo_path(@sitter.id), notice: 'New sitter created!'
     else
       render :new
     end
