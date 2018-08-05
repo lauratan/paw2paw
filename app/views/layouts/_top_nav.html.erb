@@ -5,9 +5,9 @@
     </div>
     <div class="collapse navbar-collapse" id="custom-collapse">
       <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown"><%= link_to 'Search', sitters_path %></li>
+      <li class="dropdown"><%= link_to '<i class="fa fa-search" aria-hidden="true"></i>Search'.html_safe, sitters_path %></li>
       <% if current_user && !current_sitter %>
-      <li class="dropdown"><%= link_to 'Become A Sitter', new_sitter_path %></li>
+      <li class="dropdown"><%= link_to '<i class="fa fa-paw" aria-hidden="true"></i>Become A Sitter'.html_safe, new_sitter_path %></li>
       <li class="dropdown"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
       <li class="dropdown"><%= link_to current_user.first_name, user_bookings_index_path(current_user.id)%></li>
       <span><%= link_to image_tag(current_user.avatar, class:"navbar-avatar"), user_bookings_index_path(current_user.id)%></span>
@@ -24,8 +24,8 @@
       <li class="dropdown"><%= link_to current_user.first_name, user_bookings_index_path(current_user.id) %></li>
       <span><%= link_to image_tag(current_user.avatar, class:"navbar-avatar"), user_bookings_index_path(current_user.id) %></span>
       <% else %>
-        <li class="dropdown"><%= link_to 'Login', new_session_path %></li>
-        <li class="dropdown"><%= link_to 'Sign Up', new_user_path %></li>
+        <li class="dropdown"><%= link_to '<i class="fa fa-sign-in" aria-hidden="true"></i>Login'.html_safe, new_session_path %></li>
+        <li class="dropdown"><%= link_to '<i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up'.html_safe, new_user_path %></li>
       <% end %>
       </ul>
     </div>
