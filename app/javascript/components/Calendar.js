@@ -42,7 +42,7 @@ export default class Calendar extends React.Component {
 					onDayClick={this.handleDayClick}
 				/>
 				<br/>
-				<button class="btn btn-g btn-round" onClick={this.handleSubmitClick}>Save availabilities</button>
+				<button class="btn btn-g btn-round" onClick={this.handleSubmitClick}><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Save availabilities</button>
 			</div>
 
 		);
