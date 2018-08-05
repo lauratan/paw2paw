@@ -19,7 +19,8 @@
                             <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
                             <% if current_user %> 
                               <% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
-                                <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button">Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
+                                 
+                                <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button"><i class="fa fa-calendar" aria-hidden="true"></i>Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
                               <% end %>
                             <% else %>
                               <div class="alert alert-info" role="alert">
