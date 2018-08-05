@@ -21,7 +21,7 @@
           </ul>  
         </li>
       <li class="dropdown"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-      <li class="dropdown"><%= link_to current_user.first_name, sitter_path(current_sitter.id) %></li>
+      <li class="dropdown"><%= link_to current_user.first_name, user_bookings_index_path(current_user.id) %></li>
       <span><%= link_to image_tag(current_user.avatar, class:"navbar-avatar"), user_bookings_index_path(current_user.id) %></span>
       <% else %>
         <li class="dropdown"><%= link_to 'Login', new_session_path %></li>
