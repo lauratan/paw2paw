@@ -7,6 +7,21 @@
 
             <%= form_for :sitter, url: '/sitters', class: "form" do |form| %>
 
+            <div>
+              <% if @sitter.errors.any? %>
+                <div class="alert alert-danger" role="alert"> 
+                <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+                <% @sitter.errors.full_messages.each do |error| %>
+                    <div>
+                    <i class="fa fa-cog fa-spin"></i>
+                    <strong>Alert!</strong>
+                    <%= error %>
+                    </div>
+                <% end %>
+                </div>
+              <% end %>
+            </div>
+
             <div class="form-group">
                 <%= form.label :name %>
                 <%= form.text_field :name , :value => "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
