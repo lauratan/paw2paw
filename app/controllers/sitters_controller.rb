@@ -20,6 +20,9 @@ class SittersController < ApplicationController
   def new
     @sitter = Sitter.new
     @user = current_user
+    if current_sitter 
+      redirect_to sitter_path(current_sitter.id) 
+    end 
   end
 
   def create

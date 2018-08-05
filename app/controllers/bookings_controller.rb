@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def new
     @sitter = Sitter.find(params[:sitter_id])
     @user = current_user
+    
   end
 
   def create
