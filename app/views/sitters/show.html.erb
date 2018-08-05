@@ -41,6 +41,11 @@
                   <p><%= @sitter.rules %></p>
                   <p><%= @sitter.price %></p>
                 </div>
+                <div class="sitter-photos">
+                  <% @photos.each do |photo| %>
+                    <%= image_tag photo.photo_url %>
+                  <% end %>
+                </div>
             </div>
         </div>    
     </div>
