@@ -1,16 +1,16 @@
 
       <div class="main">
         <div class="container">
-            <div class="row">
-              <div class="sidebar">
+            <div class="row-scroll">
+              <div class="sidebar-sitter-index">
                 <div class="widget">
                 <section class="sitter-index">
                   <h5 class="widget-title font-alt">Sitter Nearby</h5>
                   <ul class="widget-posts">
                   <li> <%= render @sitters %> </li>
                   </ul>
-                </div>
                 </section>  
+                </div>
               </div>
               <div class="col-sm-8 map-container">
                 <div id="map">
@@ -40,8 +40,9 @@
     .bindPopup("You are here").openPopup();
     
     <% @sitters.each do |sitter| %>
+    <% @user = User.find_by(id: sitter.user_id) %>
       L.marker([<%=sitter.latitude%>, <%=sitter.longitude%>]).addTo(map)
-      .bindPopup("This is Sitter : <%=sitter.name%>");
+      .bindPopup("<a id='popup-link' href='sitters/<%=sitter.id%>'/> <img src=<%=@user.avatar%> style='width:35px'/> <%=sitter.name%> \n<br/> Address: <%=sitter.address%> \n<br/> Summary: <%=sitter.summary%> ");
     <% end %>
         
 	  }

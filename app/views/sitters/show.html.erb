@@ -1,24 +1,25 @@
 <div class="main">
     <div class="container">
-        <div class="row">
-            <div class="sidebar">
+        <div class="row-scroll">
+            <div class="sidebar-sitter-details">
                 <div class="widget">
                     <section class="sitter-index">
                         <h5 class="widget-title font-alt"><%= @sitter.name %></h5>
 
                         <ul class="widget-posts">
-                            <li><%= @sitter.name %></li>
                             <li>
                             <%  @user = User.find_by(id: @sitter.user_id) %>
-                            <%= image_tag @user.avatar %>
+                            <%= image_tag(@user.avatar, class:"sitter-avatar")%>
                             </li>
                         </ul>
-                        <button><%= link_to 'Booking', new_sitter_booking_path(@sitter.id) %></button>
-
+                        <br>
                         <script> ReactRailsUJS.mountComponents() </script>
 
                         <div class="DayPicker" lang="en">
                             <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
+                            <% if (current_sitter.id != @sitter.id) %>
+                            <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button">Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
+                            <% end%>
                         </div>
 
                     </section>
