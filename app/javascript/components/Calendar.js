@@ -37,12 +37,14 @@ export default class Calendar extends React.Component {
     render() {
 		return (
 			<div>
-			  <DayPicker
-				selectedDays={this.state.selectedDays}
-				onDayClick={this.handleDayClick}
-			  />
-			  <button onClick={this.handleSubmitClick}>Save</button>
+				<DayPicker
+					selectedDays={this.state.selectedDays}
+					onDayClick={this.handleDayClick}
+				/>
+				<br/>
+				<button class="btn btn-g btn-round" onClick={this.handleSubmitClick}>Save availabilities</button>
 			</div>
+
 		);
 	}
 }
