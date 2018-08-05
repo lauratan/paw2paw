@@ -5,6 +5,7 @@
     </div>
     <div class="collapse navbar-collapse" id="custom-collapse">
       <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown"><%= link_to 'Search', sitters_path %></li>
       <% if current_user && !current_sitter %>
       <li class="dropdown"><%= link_to 'Become A Sitter', new_sitter_path %></li>
       <li class="dropdown"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
