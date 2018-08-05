@@ -2,11 +2,18 @@
   <div class="container">
     <div class="row-scroll">
         <div class="col-sm-5 col-sm-offset-1 mb-sm-40">
-            <h4 class="font-alt">Become A Sitter</h4>
+            <h4 class="font-alt">Update Sitter Information</h4>
             <hr class="divider-w mb-10">     
 
             <%= form_for :sitter, url: "/sitters/#{@sitter.id}", method: :put, class: "form" do |form| %>
 
+            <script> ReactRailsUJS.mountComponents()</script>
+                <div style="text-align: center">
+
+                    <%= react_component("Calendar", {sitter: @sitter.id}, {prerender: true}) %>
+                </div>
+            <br>
+            
             <div class="form-group">
                 <%= form.label :name %>
                 <%= form.text_field :name , :value => "#{@user.first_name} #{@user.last_name}", class: 'form-control' %>
@@ -35,8 +42,12 @@
             <div class="form-group">
                 <%= form.submit 'Submit', class: 'btn btn-block btn-round btn-b' %>
             </div>
+            <br>
+            <br>
+            <br>
             
             <% end %>
+                
       </div>
     </div>
   </div>
@@ -44,7 +55,3 @@
 
 
 
-<script> ReactRailsUJS.mountComponents()</script>
-<div>
-<%= react_component("Calendar", {sitter: @sitter.id}, {prerender: true}) %>
-</div>

@@ -94,7 +94,8 @@ export default class Booking extends React.Component {
           selectedDays={this.state.selectedDays}
           onDayClick={this.handleDayClick}
           />
-          <button onClick={this.handleSubmitClick}>Confirm Booking Dates</button>
+          <br/>
+          <button class="btn btn-g btn-round" onClick={this.handleSubmitClick}>Confirm Booking Dates</button>
         </div>
       );
     }

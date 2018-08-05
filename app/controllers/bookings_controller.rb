@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.status = 'Pending'
 
-    if @booking.save! 
+    if @booking.save
       redirect_to new_sitter_booking_booking_date_path(@sitter.id, @booking.id), notice: 'The booking request has been sent to the sitter'
     end
   end
