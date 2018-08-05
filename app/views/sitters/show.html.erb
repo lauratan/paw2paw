@@ -17,8 +17,7 @@
 
                         <div class="DayPicker" lang="en">
                             <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
-                            <%= @result = Sitter.find_by(user_id: current_user.id)%>
-                            <% if @result == nil %>
+                            <% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
                                 <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button">Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
                             <% end %>
                         </div>
