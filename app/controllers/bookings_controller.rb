@@ -39,7 +39,12 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find_by(id: params[:booking_id])
     @booking.update!(:status => 'Accepted')
-    redirect_to sitter_bookings_path(@booking.sitter_id)
+    @booking_dates = BookingDate.where(booking_id: @booking.id)
+    @booking_dates.each do |booking_date|
+      @avail = Availability.find_by(avail_date: booking_date.date, sitter_id: @booking.sitter_id)
+      Availability.find_by(id:@avail.id).destroy
+    end
+    redirect_to sitter_path(@booking.sitter_id)
   end
   
   def reject

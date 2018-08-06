@@ -15,11 +15,9 @@ Rails.application.routes.draw do
       patch :reject
       patch :complete
       patch :incomplete
-      resources :availabilities, only: [:delete]
       resources :booking_dates, only: [:new, :create] 
-      
     end
-    resources :availabilities, only: [:create]
+    resources :availabilities, only: [:create, :destroy]
   end 
   
   resources :sessions, path: 'login', only: [:new, :create]

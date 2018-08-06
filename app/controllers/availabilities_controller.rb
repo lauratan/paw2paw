@@ -13,4 +13,9 @@ skip_before_action :verify_authenticity_token
     end
   end
   
+  def destroy
+    avail_delete = Availability.destroy(id: @avail.id)
+    
+  end
+
 end
