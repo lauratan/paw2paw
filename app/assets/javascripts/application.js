@@ -17,5 +17,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require leaflet
-//= require_tree .
 //= require owl.carousel
+//= require_tree .
