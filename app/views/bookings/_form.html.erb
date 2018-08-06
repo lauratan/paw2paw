@@ -2,26 +2,26 @@
   <div class="container">
     <div class="row-scroll">
       <div class="col-sm-5 col-sm-offset-1 mb-sm-40">
-            <h4 class="font-alt">Booking Form</h4>
-            <hr class="divider-w mb-10">     
+        <h4 class="font-alt">Booking Form</h4>
+        <hr class="divider-w mb-10">     
         <%= form_for @booking, as: :booking, url: sitter_bookings_path(params[:sitter_id]), class: "form" do |form| %>
 
-						<div>
-						<% if @booking.errors.any? %>
-							<div class="alert alert-danger" role="alert"> 
-								<button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
-								<% @booking.errors.full_messages.each do |error| %>
-									<div>
-										<i class="fa fa-cog fa-spin"></i>
-										<strong>Alert!</strong>
-										<%= error %>
-									</div>
-								<% end %>
-							</div>
-        		<% end %>
-						</div>
+            <div>
+            <% if @booking.errors.any? %>
+                <div class="alert alert-danger" role="alert"> 
+                    <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+                    <% @booking.errors.full_messages.each do |error| %>
+                        <div>
+                            <i class="fa fa-cog fa-spin"></i>
+                            <strong>Alert!</strong>
+                            <%= error %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+            </div>
 
-          <% if current_user %>
+        <% if current_user %>
             <div class="form-group">
 							<%= form.label :name do %>
 							<i class="fa fa-id-badge" aria-hidden="true"></i>
@@ -88,21 +88,26 @@
 							<%= form.text_area :info, class: 'form-control', placeholder: 'Optional'%>
             </div>
 					
-						<div class="form-group">
-							<%= form.submit 'Submit', class: 'btn btn-block btn-round btn-b' %>
-						</div>
-						<br>
-						<br>
-						<br>
-					<% else %>
+            <div class="form-group">
+                <%= form.submit 'Submit', class: 'btn btn-block btn-round btn-b' %>
+            </div>
+            <br>
+            <br>
+            <br>
+            
+        <% else %>
 
-						<br> <h5 class="font-alt">Please login or register first</h5> <br>
+            <br> 
+            <h5 class="font-alt">Please login or register first</h5> 
+            <br>
 
-						<div class="col-sm-5 col-sm-offset-1 mb-sm-40">
-							<%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Login</button>'.html_safe, new_session_path %> <br>
-							<%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Sign Up</button>'.html_safe, new_user_path %>
-						</div>
-					<% end %>
+            <div class="col-sm-5 col-sm-offset-1 mb-sm-40">
+                <%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Login</button>'.html_safe, new_session_path %> 
+                <br>
+                <%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Sign Up</button>'.html_safe, new_user_path %>
+            </div>
+
+        <% end %>
 
         <% end %>
 
