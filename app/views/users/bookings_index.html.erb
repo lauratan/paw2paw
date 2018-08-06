@@ -9,22 +9,22 @@
 
 					<ul class="nav nav-tabs font-alt" role="tablist">
 						<li class="active">
-							<a href="#pending" data-toggle="tab" aria-expanded="true"><span class="icon-tools-2"></span>Pending Bookings</a>
+							<a href="#u-pending" data-toggle="tab" aria-expanded="true">Pending Bookings</a>
 						</li>
 						<li class="">
-							<a href="#accepted" data-toggle="tab" aria-expanded="false"><span class="icon-tools-2"></span>Accepted Bookings</a>
+							<a href="#u-accepted" data-toggle="tab" aria-expanded="false">Accepted Bookings</a>
 						</li>
-						<li class="active">
-							<a href="#completed" data-toggle="tab" aria-expanded="true"><span class="icon-tools-2"></span>Completed Bookings</a>
+						<li class="">
+							<a href="#u-completed" data-toggle="tab" aria-expanded="true">Completed Bookings</a>
 						</li>
-						<li class="active">
-							<a href="#incomplete" data-toggle="tab" aria-expanded="true"><span class="icon-tools-2"></span>Incomplete Bookings</a>
+						<li class="">
+							<a href="#u-incomplete" data-toggle="tab" aria-expanded="true">Incomplete Bookings</a>
 						</li>
 					</ul>
 					
 					<div class="tab-content">
 
-						<div class="user-pending tab-pane active" id="pending">							
+						<div class="user-pending tab-pane active" id="u-pending">							
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Pending' %>
 								
@@ -43,7 +43,7 @@
 							<% end %>
 						</div>
 
-						<div class="user-accept tab-pane" id="accepted">
+						<div class="user-accept tab-pane" id="u-accepted">
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Accepted' %>
 
@@ -62,7 +62,7 @@
 							<% end %>
 						</div>
 
-						<div class="user-complete tab-pane" id="completed">
+						<div class="user-complete tab-pane" id="u-completed">
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Completed' %>
 
@@ -81,7 +81,7 @@
 							<% end %>
 						</div>
 
-						<div class="tab-pane" id="incomplete">
+						<div class="user-incomplete tab-pane" id="u-incomplete">
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Incomplete' || booking.status == 'Rejected' %>  
 
@@ -101,8 +101,6 @@
 						</div>
 
 					</div>
-
-
 
 				</div>
 
