@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-    mount_uploader :avatar, AvatarUploader
-    
-    has_many :bookings
-    has_many :sitters, through: :bookings
+	mount_uploader :avatar, AvatarUploader
+	
+	has_many :bookings
+	has_many :sitters, through: :bookings
 
   has_secure_password
 	before_validation :downcase_email
