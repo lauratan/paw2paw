@@ -7,6 +7,21 @@
                 
                 <%= form_for :user, url: '/users', class: "form" do |form| %>
 
+                <div>
+                <% if @user.errors.any? %>
+                    <div class="alert alert-danger" role="alert"> 
+                        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+                        <% @user.errors.full_messages.each do |error| %>
+                            <div>
+                                <i class="fa fa-cog fa-spin"></i>
+                                <strong>Alert!</strong>
+                                <%= error %>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+                </div>
+                
                 <div class="form-group">
                     <%= form.label :fist_name %>
                     <%= form.text_field :first_name, class: 'form-control' %>
@@ -40,6 +55,9 @@
                 <div class="form-group">
                     <%= form.submit 'Register', class: 'btn btn-block btn-round btn-b' %>
                 </div>
+                <br>
+                <br>
+                <br>
 
                 <% end %>
             </div>
