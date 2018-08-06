@@ -4,7 +4,7 @@
             <div class="sidebar-sitter-details">
                 <div class="widget">
                     <section class="sitter-index">
-                        <h5 class="widget-title font-alt"><%= @sitter.name %></h5>
+                        <h3 class="font-alt mb-0"><%= @sitter.name %></h3>
 
                         <ul class="widget-posts">
                             <li>
@@ -16,10 +16,11 @@
                         <script> ReactRailsUJS.mountComponents() </script>
                           
                         <div class="DayPicker" lang="en">
+                            <h5 class="font-alt mb-0">Availability</h5>
+                            <hr class="divider-w mt-10 mb-20">
                             <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
                             <% if current_user %> 
                               <% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
-                                 
                                 <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button"><i class="fa fa-calendar" aria-hidden="true"></i>Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
                               <% end %>
                             <% else %>
@@ -35,13 +36,17 @@
                 </div>
             </div>
             <div class="col-sm-8 map-container">
-              <div class="post-title">    
-              </div>
-                <div class="post-title">
+              <h5 class="font-alt mb-0">Details</h5>
+              <hr class="divider-w mt-10 mb-20">
+                <div class="sitter-details">
+                  <h3 class="features-title font-alt">Summary</h3>
                   <p><%= @sitter.summary %></p>
+                  <h3 class="features-title font-alt">Rules</h3>                  
                   <p><%= @sitter.rules %></p>
+                  <h3 class="features-title font-alt">Price</h3>                  
                   <p><%= @sitter.price %></p>
                 </div>
+
                 <div class="sitter-photos">
                   <% @photos.each do |photo| %>
                     <%= image_tag photo.photo_url %>
