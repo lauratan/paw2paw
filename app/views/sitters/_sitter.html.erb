@@ -1,22 +1,25 @@
 <article class="sitter">
-   #if the distance is the closed to the user's location
-  
-  <header> 
   <%= link_to sitter do %>
-    <h4> <%= sitter.name %></h4>
+  <div>    
+    <ul class="text-center">
+      <li>
+      <h3> <%= sitter.name %></h3>
+      </li>
       <%  @user = User.find_by(id: sitter.user_id) %>
-      <%= image_tag @user.avatar %>
-
-
-    <% end  %>
-    </header>
-    <p class="description">
-    <%= sitter.summary %>
-    </p>
-    <footer class="actions">
-    <h4> <%= sitter.price %>/hr <h4>
-    <%= link_to sitter, class: 'btn btn-default pull-right' do %>
+      <li>
+      <%= image_tag(@user.avatar, class:"sitter-avatar") %>
+      </li>
+      <br>
+      <% end  %>
+      <li style="font-size: 18px">  
+      <%= sitter.summary %>
+      </li>
+    </ul>
+    <footer class="card text-center">
+    <h2> <%= sitter.price %>/hr <h2>
+    <%= link_to sitter, class: 'btn btn-default pull-center' do %>
       Details
-      <% end %>
+    <% end %>
   </footer>
+  </div>
 </article>
