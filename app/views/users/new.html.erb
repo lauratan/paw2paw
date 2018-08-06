@@ -23,32 +23,50 @@
                 </div>
                 
                 <div class="form-group">
-                    <%= form.label :fist_name %>
+                    <%= form.label :first_name do %>
+                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                    First Name
+                    <% end %>
                     <%= form.text_field :first_name, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :last_name %>
+                    <%= form.label :last_name do %>
+                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                    Last Name
+                    <% end %>
                     <%= form.text_field :last_name, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :email %>
+                    <%= form.label :email do %>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    Email
+                    <% end %>
                     <%= form.text_field :email, class: 'form-control' %>
                 </div>
             
                 <div class="form-group">
-                    <%= form.label :password %>
+                    <%= form.label :password do %>
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    Password
+                    <% end %>
                     <%= form.password_field :password, class: 'form-control' %>
                 </div>
             
                 <div class="form-group">
-                    <%= form.label :password_confirmation %>
+                    <%= form.label :password_confirmation do %>
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    Password Confirmation
+                    <% end %>
                     <%= form.password_field :password_confirmation, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :avatar %>
+                    <%= form.label :avatar do %>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    Avatar
+                    <% end %>
                     <%= form.text_field :avatar, class: 'form-control' %>
                 </div>
 
