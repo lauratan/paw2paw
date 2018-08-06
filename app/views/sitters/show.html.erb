@@ -29,8 +29,6 @@
                             <% end%>
 
                         </div>
-                        
-
                     </section>
                 </div>
             </div>
@@ -42,11 +40,24 @@
                   <p><%= @sitter.rules %></p>
                   <p><%= @sitter.price %></p>
                 </div>
-                <div class="sitter-photos">
-                  <% @photos.each do |photo| %>
-                    <%= image_tag photo.photo_url %>
-                  <% end %>
+               
+                <div class="owl-carousel">   
+                    <% @photos.each do |photo| %>
+                        <%= image_tag photo.photo_url %>
+                    <% end %>
                 </div>
+
+
+
+                <script>
+                $(document).ready(function(){
+                  $('.owl-carousel').owlCarousel({
+                    loop:true,
+                    autowidth: true,
+                    lazyLoad : true
+                  })
+                })
+                </script>
             </div>
         </div>    
     </div>

@@ -18,3 +18,4 @@
 //= require turbolinks
 //= require leaflet
 //= require_tree .
+//= require owl.carousel
