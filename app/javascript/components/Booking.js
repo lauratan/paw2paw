@@ -95,7 +95,7 @@ export default class Booking extends React.Component {
           onDayClick={this.handleDayClick}
           />
           <br/>
-          <button class="btn btn-g btn-round" onClick={this.handleSubmitClick}>Confirm Booking Dates</button>
+          <button class="btn btn-g btn-round" onClick={this.handleSubmitClick}>Confirm Booking Dates <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
         </div>
       );
     }
