@@ -24,6 +24,9 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'leaflet-rails'
 gem 'geocoder'
+gem 'carrierwave', '~> 1.0'
+# Use ActiveStorage variant
+gem 'mini_magick', '~> 4.8'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -35,9 +38,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
