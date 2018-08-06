@@ -13,7 +13,8 @@ users = User.create!([
         email: 'alice@alice.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'alicejones.png'))
+        
     },
     {
         first_name: 'Bob',
@@ -21,7 +22,7 @@ users = User.create!([
         email: 'bob@bob.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'bobbay.png'))
     },
     {
         first_name: 'Charlie',
@@ -29,7 +30,7 @@ users = User.create!([
         email: 'charlie@charlie.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'charliecompute.png'))
     },
     {
         first_name: 'Ruby',
@@ -37,7 +38,7 @@ users = User.create!([
         email: 'ruby@ruby.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'rubyrails.png'))
     }
 ])
 
