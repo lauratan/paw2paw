@@ -1,101 +1,116 @@
 <div class="main">
   <div class="container">
     <div class="row-scroll">
-      
-        <div class="user-pending">
-      <% if !(@bookings.empty?) %> 
-        <h5 class="font-alt">Pending Tab</h5>
-        <hr class="divider-w mb-10">
-        
-        <% @bookings.each do |booking| %>
-          <% if booking.status == 'Pending' %>
-          
-          <% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-          <p><%= @sitter_of_booking.name %></p>   
+			<div class="col-sm-9 col-sm-offset-1 mb-sm-40">
+				<h4 class="font-alt mb-0">My Booking Status</h4>
+				<hr class="divider-w mt-10 mb-20">
+				<% if !(@bookings.empty?) %> 
+				<div role="tabpanel">
 
-          <p><%= booking.dog_name %></p>
-          <p><%= booking.created_at %></p>          
-          <p><%= booking.status %></p>
+					<ul class="nav nav-tabs font-alt" role="tablist">
+						<li class="active">
+							<a href="#u-pending" data-toggle="tab" aria-expanded="true">Pending Bookings</a>
+						</li>
+						<li class="">
+							<a href="#u-accepted" data-toggle="tab" aria-expanded="false">Accepted Bookings</a>
+						</li>
+						<li class="">
+							<a href="#u-completed" data-toggle="tab" aria-expanded="true">Completed Bookings</a>
+						</li>
+						<li class="">
+							<a href="#u-incomplete" data-toggle="tab" aria-expanded="true">Incomplete Bookings</a>
+						</li>
+					</ul>
+					
+					<div class="tab-content">
 
-          <%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-          Details
-          <% end %>
+						<div class="user-pending tab-pane active" id="u-pending">							
+							<% @bookings.each do |booking| %>
+								<% if booking.status == 'Pending' %>
+								
+								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
+								<p><%= @sitter_of_booking.name %></p>   
 
-          <% end %>
-        <% end %>
-      </div>
+								<p><%= booking.dog_name %></p>
+								<p><%= booking.created_at %></p>          
+								<p><%= booking.status %></p>
 
-      <div class="user-accept">
-        <h5 class="font-alt">Accepted Tab</h5>
-        <hr class="divider-w mb-10">
-        
-        <% @bookings.each do |booking| %>
-          <% if booking.status == 'Accepted' %>
+								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
+								Details
+								<% end %>
 
-          <% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-          <p><%= @sitter_of_booking.name %></p>   
+								<% end %>
+							<% end %>
+						</div>
 
-          <p><%= booking.dog_name %></p>
-          <p><%= booking.created_at %></p>          
-          <p><%= booking.status %></p>
+						<div class="user-accept tab-pane" id="u-accepted">
+							<% @bookings.each do |booking| %>
+								<% if booking.status == 'Accepted' %>
 
-          <%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-          Details
-          <% end %>
+								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
+								<p><%= @sitter_of_booking.name %></p>   
 
-          <% end %>
-        <% end %>
-      </div>
+								<p><%= booking.dog_name %></p>
+								<p><%= booking.created_at %></p>          
+								<p><%= booking.status %></p>
 
-      <div class="user-complete">
-        <h5 class="font-alt">Completed Tab</h5>
-        <hr class="divider-w mb-10">
-        
-        <% @bookings.each do |booking| %>
-          <% if booking.status == 'Completed' %>
+								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
+								Details
+								<% end %>
 
-          <% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-          <p><%= @sitter_of_booking.name %></p>     
+								<% end %>
+							<% end %>
+						</div>
 
-          <p><%= booking.dog_name %></p>
-          <p><%= booking.created_at %></p>          
-          <p><%= booking.status %></p>
+						<div class="user-complete tab-pane" id="u-completed">
+							<% @bookings.each do |booking| %>
+								<% if booking.status == 'Completed' %>
 
-          <%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-          Details
-          <% end %>
+								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
+								<p><%= @sitter_of_booking.name %></p>     
 
-          <% end %>
-        <% end %>
-      </div>
+								<p><%= booking.dog_name %></p>
+								<p><%= booking.created_at %></p>          
+								<p><%= booking.status %></p>
 
-      <div class="user-incomplete">
-        <h5 class="font-alt">Incomplete Tab</h5>
-        <hr class="divider-w mb-10">
-        
-        <% @bookings.each do |booking| %>
-          <% if booking.status == 'Incomplete' || booking.status == 'Rejected' %>  
+								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
+								Details
+								<% end %>
 
-          <% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-          <p><%= @sitter_of_booking.name %></p>       
+								<% end %>
+							<% end %>
+						</div>
 
-          <p><%= booking.dog_name %></p>
-          <p><%= booking.created_at %></p>          
-          <p><%= booking.status %></p>
+						<div class="user-incomplete tab-pane" id="u-incomplete">
+							<% @bookings.each do |booking| %>
+								<% if booking.status == 'Incomplete' || booking.status == 'Rejected' %>  
 
-          <%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-          Details
-          <% end %>
+								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
+								<p><%= @sitter_of_booking.name %></p>       
 
-          <% end %>
-        <% end %>
-      </div>
-      <% else %>
-      <h5 class="font-alt">Bookings</h5>
-        <div class="alert alert-danger" role="alert">
-        Currently, there is no booking
-        </div>
-     <% end %>
-    </div>
-  </div>
+								<p><%= booking.dog_name %></p>
+								<p><%= booking.created_at %></p>          
+								<p><%= booking.status %></p>
+
+								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
+								Details
+								<% end %>
+
+								<% end %>
+							<% end %>
+						</div>
+
+					</div>
+
+				</div>
+
+				<% else %>
+					<div class="alert alert-danger" role="alert">
+					Currently, there is no booking
+					</div>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
 </div>
