@@ -31,7 +31,6 @@
 
                         </div>
                         
-
                     </section>
                 </div>
             </div>
@@ -47,13 +46,25 @@
                   <p><%= @sitter.price %></p>
                 </div>
 
-                <div class="sitter-photos">
-                  <% @photos.each do |photo| %>
-                    <%= image_tag photo.photo_url %>
-                  <% end %>
+                <div id="owl-carousel" class="owl-carousel owl-theme">  
+                        <% @photos.each do |photo| %>
+                            <%= image_tag photo.photo_url %>
+                        <% end %>
                 </div>
+
+                
             </div>
         </div>    
     </div>
 </div>
-    
+
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        item : 3,
+        itemsDesktop : [1119,3],
+        itemsDesktopSmall : [979, 3]
+    })
+</script>
