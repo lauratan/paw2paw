@@ -1,6 +1,7 @@
 class Sitter < ApplicationRecord
+	mount_uploaders :photos, PhotoUploader
+
     has_many :availabilities
-    has_many :photos
     has_many :bookings
     has_many :users, through: :bookings
     belongs_to :user
