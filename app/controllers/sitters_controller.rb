@@ -1,7 +1,7 @@
 class SittersController < ApplicationController
   
   def index
-    @sitters = Sitter.all.order(created_at: :desc)
+    @sitters = Sitter.all.order(created_at: :asc)
     
   end
 

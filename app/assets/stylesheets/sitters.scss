@@ -8,8 +8,10 @@
     overflow-y: scroll;
     top: 10px;
     bottom: 0;
-    padding-right: 5px;
+    padding-right: 65px;
     padding-left: 10px;
+    padding-bottom: 35px;
+    
     .widget {
         margin-bottom: 60px;
         .widget-title {
@@ -31,6 +33,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 15px;
         border-radius: 50%;
         border: 1px solid black;
     }
