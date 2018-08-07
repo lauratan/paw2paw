@@ -68,7 +68,6 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find_by(id: params[:id])
     @owner = User.find_by(params[:user_id])
-    puts "owner",@owner
   end
 
   private
