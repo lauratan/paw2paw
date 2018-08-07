@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end 
 
   resources :sitters, only: [:index, :show, :new, :create, :update, :edit] do 
+    resources :reviews, only: [:create, :destroy]
     resources :bookings, only: [:index, :new, :show, :create, :edit] do
       patch :accept
       patch :reject

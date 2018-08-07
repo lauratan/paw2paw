@@ -59,6 +59,57 @@
 								<li>ur givin me a spook. Such treat many pats such treat very good spot doing me a frighten most angery pupper I have ever seen, heckin angery woofer pupperino heckin good boys and girls. Pupperino puggorino sub woofer wow very biscit shoob waggy wags borking doggo, thicc extremely cuuuuuute you are doing me the shock shooberino. Lotsa pats heckin good boys wow such tempt such treat I am bekom fat, porgo what a nice floof floofs. pupperino floofs. Big ol pupper long bois length boy sub woofer, adorable doggo. Yapper smol borking doggo with a long snoot for pats porgo you are doin me a concern, snoot. Shibe stop it fren pats much ruin diet, long woofer. Stop it fren woofer stop it fren maximum borkdrive long doggo, snoot dat tungg tho. wow such tempt heck big ol pupper. Ruff woofer boofers bork sub woofer ruff ur givin me a spook pats, puggo such treat boof I am bekom fat ruff very hand that feed shibe.  Doggorino wow such tempt very good spot very jealous pupper blop, you are doing me the shock sub woofer. Shooberino pats very good spot noodle horse, blep.</li></h8>
 								</ul>
 							</div>
+
+
+							<div>
+								<h4 class="font-alt mb-0" style="font-weight:bold">Reviews</h4>
+								<hr class="divider-w mt-10 mb-20">
+						 		<%= form_for :review, url: sitter_reviews_path(@sitter.id) do |f| %>
+								<div class="form-group">
+								<%= f.label "Rating:"%> 
+								<%= f.select :rating, [1, 2, 3, 4, 5] %> 
+								</div>
+								<div class="form-group">
+								<%= f.text_area :content, placeholder: "Leave a comment"%>
+								</div>
+								<div class="form-group">
+								<%= f.submit "Submit", class: "btn btn-round btn-b" %>
+								</div>
+								<% end %>
+							</div>
+
+							<div>
+								<hr class="divider-w mt-10 mb-20">
+								<% @reviews.reverse.each do |review| %>
+									<% User.where(id: review.user_id).each do |user| %>
+									<div class="well">
+									<h8 class="font-alt">
+									<%= image_tag user.avatar.thumb.url %>
+									<%= user.first_name %>
+									<div>
+									<br>
+									Rating:
+									<%= review.rating.times do |star| %>
+									⭐️
+									<% end %>
+									<br>
+									</div>
+									</h8>
+									<h8 class="font-alt"> Description:  
+									<%= review.content %>
+										<% if user == current_user %>
+										<div>
+										<br>
+										<%= link_to 'Delete', "/sitters/#{@sitter.id}/reviews/#{review.id}", method: :delete, class: 'btn btn-danger btn-circle' %>
+										</div>
+										<% end %>
+									</h8>
+									</div>
+									<% end %>
+								<% end %>
+							</div>
+					<br>
+					<br>
             </div>
         </div>    
     </div>
