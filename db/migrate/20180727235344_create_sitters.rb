@@ -8,6 +8,7 @@ class CreateSitters < ActiveRecord::Migration[5.2]
       t.integer :price
       t.float :latitude
       t.float :longitude
+      t.json :photos
       t.integer :user_id
 
       t.timestamps

@@ -3,23 +3,27 @@
   <div>    
     <ul class="text-center">
       <li>
-      <h3> <%= sitter.name %></h3>
+        <h3> <%= sitter.name %></h3>
       </li>
+
       <%  @user = User.find_by(id: sitter.user_id) %>
       <li>
-      <%= image_tag(@user.avatar, class:"sitter-avatar") %>
+        <%= image_tag(@user.avatar.medium.url, class:'sitter-avatar') %>
       </li>
       <br>
       <% end  %>
+
       <li style="font-size: 18px">  
-      <%= sitter.summary %>
+        <%= sitter.summary %>
       </li>
     </ul>
+    
     <footer class="card text-center">
-    <h2> <%= sitter.price %>/hr <h2>
-    <%= link_to sitter, class: 'btn btn-default pull-center' do %>
-      Details
-    <% end %>
-  </footer>
+			<h2> <%= sitter.price %>/night <h2>
+			
+			<%= link_to sitter, class: 'btn btn-default pull-center' do %>
+				Details
+			<% end %>
+    </footer>
   </div>
 </article>
