@@ -4,48 +4,47 @@
             <div class="sidebar-sitter-details">
                 <div class="widget">
                     <section class="sitter-index">
-                        <h3 class="font-alt mb-0"><%= @sitter.name %></h3>
+											<h3 class="font-alt mb-0"><%= @sitter.name %></h3>
 
-                        <ul class="widget-posts">
-                            <li>
-                            <%  @user = User.find_by(id: @sitter.user_id) %>
-                            <%= image_tag(@user.avatar.medium.url, class:'sitter-avatar')%>
-                            </li>
-                        </ul>
-                        <br>
-                        <div>
-                         <h4 class="font-alt mb-0" style="font-weight:bold">Price</h4> 
-                            <hr class="divider-w mt-10 mb-20">                 
-                            <h4 class="font-alt mb-0"><i class="fa fa-usd" aria-hidden="true"></i><%= @sitter.price %>/night</h4>
-                        </div>
-                        <br>
-                        <script> ReactRailsUJS.mountComponents() </script>
-                        <div class="DayPicker" lang="en">
-                            <h4 class="font-alt mb-0" style="font-weight:bold">Availability</h4>
-                            <hr class="divider-w mt-10 mb-20">
-                            <%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
-                            <% if current_user %> 
-                              <% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
-                                <%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button"><i class="fa fa-calendar" aria-hidden="true"></i>Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
-                              <% end %>
-                            <% else %>
-                              <div class="alert alert-info" role="alert">
-                                <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to make a booking with <%= @user.first_name %>!
-                              </div>      
-                            <% end%>
-
-                        </div>
-                        
+											<ul class="widget-posts">
+													<li>
+													<%  @user = User.find_by(id: @sitter.user_id) %>
+													<%= image_tag(@user.avatar.medium.url, class:'sitter-avatar')%>
+													</li>
+											</ul>
+											<br>
+											<div>
+												<h4 class="font-alt mb-0" style="font-weight:bold">Price</h4> 
+													<hr class="divider-w mt-10 mb-20">                 
+													<h4 class="font-alt mb-0"><i class="fa fa-usd" aria-hidden="true"></i><%= @sitter.price %>/night</h4>
+											</div>
+											<br>
+											<script> ReactRailsUJS.mountComponents() </script>
+											<div class="DayPicker" lang="en">
+													<h4 class="font-alt mb-0" style="font-weight:bold">Availability</h4>
+													<hr class="divider-w mt-10 mb-20">
+													<%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
+													<% if current_user %> 
+														<% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
+															<%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button"><i class="fa fa-calendar" aria-hidden="true"></i>Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
+														<% end %>
+													<% else %>
+														<div class="alert alert-info" role="alert">
+															<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to make a booking with <%= @user.first_name %>!
+														</div>      
+													<% end%>
+											</div>
                     </section>
                 </div>
             </div>
-              <div class="col-sm-8 map-container">
-								<h4 class="font-alt mb-0" style="font-weight:bold">Gallery</h4>
-								<hr class="divider-w mt-10 mb-20">
+						<div class="col-sm-8 map-container">
+							<h4 class="font-alt mb-0" style="font-weight:bold">Gallery</h4>
+							<hr class="divider-w mt-10 mb-20">
+							<div id="owl-carousel" class="owl-carousel owl-theme">
 								<% @photos.each do |photo| %>
 									<%= image_tag photo.normal.url %>
 								<% end %>
-              </div>
+							</div>
 
 							<div class="sitter-details">
 								<h4 class="font-alt mb-0" style="font-weight:bold">Summary</h4>
@@ -60,7 +59,6 @@
 								<li>ur givin me a spook. Such treat many pats such treat very good spot doing me a frighten most angery pupper I have ever seen, heckin angery woofer pupperino heckin good boys and girls. Pupperino puggorino sub woofer wow very biscit shoob waggy wags borking doggo, thicc extremely cuuuuuute you are doing me the shock shooberino. Lotsa pats heckin good boys wow such tempt such treat I am bekom fat, porgo what a nice floof floofs. pupperino floofs. Big ol pupper long bois length boy sub woofer, adorable doggo. Yapper smol borking doggo with a long snoot for pats porgo you are doin me a concern, snoot. Shibe stop it fren pats much ruin diet, long woofer. Stop it fren woofer stop it fren maximum borkdrive long doggo, snoot dat tungg tho. wow such tempt heck big ol pupper. Ruff woofer boofers bork sub woofer ruff ur givin me a spook pats, puggo such treat boof I am bekom fat ruff very hand that feed shibe.  Doggorino wow such tempt very good spot very jealous pupper blop, you are doing me the shock sub woofer. Shooberino pats very good spot noodle horse, blep.</li></h8>
 								</ul>
 							</div>
-                
             </div>
         </div>    
     </div>
