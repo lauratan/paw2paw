@@ -1,3 +1,248 @@
 // Place all the styles related to the bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//user booking
+.user-accept {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #e0f1d9;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.user-pending {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #fcf8e3;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.user-complete {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #d9edf7;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.user-incomplete {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #f2dede;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+            
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+
+//sitter booking
+.sitter-accept {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #e0f1d9;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+            padding-right: 10px;
+
+            button {
+                float:right;
+                margin-left: 10px;
+            }
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 15px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.sitter-pending {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #fcf8e3;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+            padding-right: 10px;
+
+            button {
+                float:right;
+                margin-left: 10px;
+            }
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.sitter-complete {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #d9edf7;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+            padding-right: 10px;
+
+            button {
+                float:right;
+                margin-left: 10px;
+            }
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.sitter-incomplete {
+    .card {
+        border: 1px solid #bababa;
+        border-radius: 5px; 
+        .card-header {
+            border-radius: inherit; 
+            background: #f2dede;
+            height: 50px;
+            color: inherit;
+            font-size: 14px;
+            padding-left: 10px;
+            float: left;
+            width: 100%;
+            margin: auto;
+            padding-top: 14px;
+            padding-right: 10px;
+
+            button {
+                float:right;
+                margin-left: 10px;
+            }
+        }
+        .card-body {
+            margin: auto;
+            color: inherit;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+    }
+}
