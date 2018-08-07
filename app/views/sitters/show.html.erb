@@ -43,9 +43,9 @@
                 </div>
 
                 <div id="owl-carousel" class="owl-carousel owl-theme">  
-                        <% @photos.each do |photo| %>
-                            <%= image_tag photo.photo_url %>
-                        <% end %>
+									<% @photos.each do |photo| %>
+											<%= image_tag photo.normal.url %>
+									<% end %>
                 </div>
 
                 

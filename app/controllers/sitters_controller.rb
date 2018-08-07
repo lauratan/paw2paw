@@ -1,6 +1,4 @@
 class SittersController < ApplicationController
-  # I want to be able to use the user table's info to get the avatar
-  # @users = User.all.order(created_at: :desc)
   
   def index
     @sitters = Sitter.all.order(created_at: :desc)
@@ -15,14 +13,14 @@ class SittersController < ApplicationController
       @dates.push(date.avail_date).sort!
     end
     @sitter = Sitter.find params[:id]
-    @photos = Photo.where(sitter_id: @sitter.id)
+    @photos = @sitter.photos
   end
 
   def new
     @sitter = Sitter.new
     @user = current_user
     if current_sitter 
-      redirect_to new_sitter_photo_path(current_sitter.id) 
+      redirect_to sitter_path(current_sitter.id) 
     end 
   end
 
@@ -30,10 +28,9 @@ class SittersController < ApplicationController
     @user = current_user
     @sitter = Sitter.new(sitter_params)
     @sitter.user_id = @user.id
-    #to add img field for house pics
     
     if @sitter.save
-      redirect_to new_sitter_photo_path(@sitter.id), notice: 'New sitter created!'
+      redirect_to sitter_path(@sitter.id), notice: 'New sitter created!'
     else
       render :new
     end

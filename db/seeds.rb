@@ -52,6 +52,13 @@ sitters = Sitter.create!([
         price: 30,
         latitude: 49.282223,
         longitude: -123.109442,
+        photos: [
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog1.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog2.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog3.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog4.jpeg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog5.jpg'))
+        ],
         user_id: 1
     },
     {
@@ -62,6 +69,13 @@ sitters = Sitter.create!([
         price: 30,
         latitude: 49.290625,
         longitude: -123.133273,
+        photos: [
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog1.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog2.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog3.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog4.jpeg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog5.jpg'))
+        ],
         user_id: 3
     }
 ])
