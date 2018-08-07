@@ -81,7 +81,8 @@ class BookingsController < ApplicationController
         :dog_size, 
         :dog_age, 
         :dog_gender, 
-        :info
+        :info,
+        :dog_avatar
       ).merge(user_id:@user.id, sitter_id:@sitter.id)
     end
 

@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_07_31_190900) do
     t.integer "dog_age"
     t.string "dog_gender"
     t.string "info"
+    t.string "dog_avatar"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

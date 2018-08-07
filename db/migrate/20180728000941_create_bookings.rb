@@ -9,6 +9,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.integer :dog_age
       t.string :dog_gender
       t.string :info
+      t.string :dog_avatar
       t.string :status
 
       t.timestamps

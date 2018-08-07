@@ -601,6 +601,7 @@ bookings = Booking.create!([
         dog_age: 2,
         dog_gender: 'Male',
         info: 'Very energetic, loves to play, run, and eat. Super friendly and lovable ❤️',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'cooper.png')),
         status: 'Pending'
     },
     {
@@ -612,6 +613,7 @@ bookings = Booking.create!([
         dog_age: 3,
         dog_gender: 'Male',
         info: 'Long legs, loves to play and run around all day long!',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'franklin.png')),
         status: 'Pending'
     },
     {
@@ -623,6 +625,7 @@ bookings = Booking.create!([
         dog_age: 1,
         dog_gender: 'Male',
         info: 'I am a baby pug. I am always the center of attention 🐾',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'oits.png')),
         status: 'Pending'
     },
     {
@@ -634,6 +637,7 @@ bookings = Booking.create!([
         dog_age: 4,
         dog_gender: 'Male',
         info: 'I am a lap dog, obsessed with food. Very chill and easy going!',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'juca.png')),
         status: 'Pending'
     },
     {
@@ -645,6 +649,7 @@ bookings = Booking.create!([
         dog_age: 6,
         dog_gender: 'Male',
         info: 'Small white furry ball. Loves to huddle with everyone and run all day long.',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'almond.png')),
         status: 'Pending'
     },
     {
@@ -656,6 +661,7 @@ bookings = Booking.create!([
         dog_age: 5,
         dog_gender: 'Male',
         info: 'Super friendly, loves to play with his little blue ball. Enjoys pats and food!',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'morley.png')),
         status: 'Pending'
     },
     {
@@ -667,6 +673,7 @@ bookings = Booking.create!([
         dog_age: 2,
         dog_gender: 'Female',
         info: 'Extremely energetic and active, super friendly, You will always see me wagging my tail.',
+        dog_avatar: File.open(Rails.root.join('db', 'seed_assets', 'dog_avatar', 'tory.png')),
         status: 'Pending'
     }
 ])

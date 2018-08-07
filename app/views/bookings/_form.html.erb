@@ -6,23 +6,23 @@
         <hr class="divider-w mb-10">     
         <%= form_for @booking, as: :booking, url: sitter_bookings_path(params[:sitter_id]), class: "form" do |form| %>
 
-            <div>
-            <% if @booking.errors.any? %>
-                <div class="alert alert-danger" role="alert"> 
-                    <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
-                    <% @booking.errors.full_messages.each do |error| %>
-                        <div>
-                            <i class="fa fa-cog fa-spin"></i>
-                            <strong>Alert!</strong>
-                            <%= error %>
-                        </div>
-                    <% end %>
-                </div>
-            <% end %>
-            </div>
+					<div>
+					<% if @booking.errors.any? %>
+						<div class="alert alert-danger" role="alert"> 
+							<button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
+							<% @booking.errors.full_messages.each do |error| %>
+								<div>
+									<i class="fa fa-cog fa-spin"></i>
+									<strong>Alert!</strong>
+									<%= error %>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+					</div>
 
-        <% if current_user %>
-            <div class="form-group">
+					<% if current_user %>
+						<div class="form-group">
 							<%= form.label :name do %>
 							<i class="fa fa-id-badge" aria-hidden="true"></i>
 							Name
@@ -33,10 +33,10 @@
 						<div class="form-group">
 							<%= form.label :email do %>
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-              Email
-              <% end %>
+							Email
+							<% end %>
 							<%= form.text_field :email, :value => "#{@user.email}", class: 'form-control'%>
-            </div>
+						</div>
 
 						<div class="form-group">
 							<%= form.label :dog_name do %>
@@ -44,7 +44,7 @@
 							Dog Name
 							<% end %>
 							<%= form.text_field :dog_name, class: 'form-control'%>
-            </div>
+						</div>
 
 						<div class="form-group">
 							<%= form.label :dog_breed do %>
@@ -52,15 +52,15 @@
 							Dog Breed
 							<% end %>
 							<%= form.text_field :dog_breed, class: 'form-control'%>
-            </div>
+						</div>
 
 						<div class="form-group">
 							<%= form.label :dog_size do %>
-							<i class="fa fa-paw fa-6" aria-hidden="true"></i>
+							<i class="fa fa-sliders fa-6" aria-hidden="true"></i>
 							Dog Size
 							<% end %>
 							<%= form.select :dog_size, ["Small (0 - 15lbs)", "Medium (16 - 40lbs)", "Large (41 - 100lbs)", "Giant (101+lbs)"], {}, class: 'form-control'%>
-            </div>
+						</div>
 
 						<div class="form-group">
 							<%= form.label :dog_age do %>
@@ -68,7 +68,7 @@
 							Dog Age
 							<% end %>
 							<%= form.text_field :dog_age, class: 'form-control'%>
-            </div>
+						</div>
 
 						<div class="form-group" >
 							<%= form.label :dog_gender do %>
@@ -78,7 +78,15 @@
 							<% end %>
 							<br>
 							<%= form.select :dog_gender, ["Male", "Female"], {}, class: 'form-control' %>
-            </div>
+						</div>
+
+						<div class="form-group">
+							<%= form.label :dog_avatar do %>
+							<i class="fa fa-paw" aria-hidden="true"></i>
+							Dog Avatar
+							<% end %>
+							<%= form.file_field :dog_avatar, class: 'form-control' %>
+						</div>
 
 						<div class="form-group">
 							<%= form.label :info do %>
@@ -86,28 +94,29 @@
 							Other Information
 							<% end %>
 							<%= form.text_area :info, class: 'form-control', placeholder: 'Optional'%>
-            </div>
+						</div>
 					
-            <div class="form-group">
-                <%= form.submit 'Submit', class: 'btn btn-block btn-round btn-b' %>
-            </div>
-            <br>
-            <br>
-            <br>
-            
-        <% else %>
+						<div class="form-group">
+								<%= form.submit 'Submit', class: 'btn btn-block btn-round btn-b' %>
+						</div>
 
-            <br> 
-            <h5 class="font-alt">Please login or register first</h5> 
-            <br>
+						<br>
+						<br>
+						<br>
+							
+					<% else %>
 
-            <div class="col-sm-5 col-sm-offset-1 mb-sm-40">
-                <%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Login</button>'.html_safe, new_session_path %> 
-                <br>
-                <%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Sign Up</button>'.html_safe, new_user_path %>
-            </div>
+						<br> 
+						<h5 class="font-alt">Please login or register first</h5> 
+						<br>
 
-        <% end %>
+						<div class="col-sm-5 col-sm-offset-1 mb-sm-40">
+								<%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Login</button>'.html_safe, new_session_path %> 
+								<br>
+								<%= link_to '<button class="btn btn-g btn-round btn-block" type="button">Sign Up</button>'.html_safe, new_user_path %>
+						</div>
+
+					<% end %>
 
         <% end %>
 
