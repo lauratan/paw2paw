@@ -13,7 +13,8 @@ users = User.create!([
         email: 'alice@alice.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'alicejones.png'))
+        
     },
     {
         first_name: 'Bob',
@@ -21,7 +22,7 @@ users = User.create!([
         email: 'bob@bob.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'bobbay.png'))
     },
     {
         first_name: 'Charlie',
@@ -29,7 +30,7 @@ users = User.create!([
         email: 'charlie@charlie.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'charliecompute.png'))
     },
     {
         first_name: 'Ruby',
@@ -37,7 +38,7 @@ users = User.create!([
         email: 'ruby@ruby.com',
         password: '1234',
         password_confirmation: '1234',
-        avatar: 'https://imgur.com/I80W1Q0.png'
+        avatar: File.open(Rails.root.join('db', 'seed_assets', 'avatar', 'rubyrails.png'))
     }
 ])
 
@@ -51,6 +52,13 @@ sitters = Sitter.create!([
         price: 30,
         latitude: 49.282223,
         longitude: -123.109442,
+        photos: [
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog1.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog2.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog3.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog4.jpeg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog5.jpg'))
+        ],
         user_id: 1
     },
     {
@@ -61,6 +69,13 @@ sitters = Sitter.create!([
         price: 30,
         latitude: 49.290625,
         longitude: -123.133273,
+        photos: [
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog1.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog2.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog3.jpg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog4.jpeg')),
+            File.open(Rails.root.join('db', 'seed_assets', 'photo', 'dog5.jpg'))
+        ],
         user_id: 3
     }
 ])

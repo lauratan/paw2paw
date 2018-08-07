@@ -32,11 +32,13 @@ class UsersController < ApplicationController
   def bookings_show
     @booking = Booking.find_by(id: params[:id])
     @sitter = Sitter.find_by(id: @booking.sitter_id)
+    @sitter_user = User.find_by(id: @sitter.user_id)
+    @owner = User.find_by(id: params[:user_id])
+    @booking_dates = BookingDate.where(booking_id: @booking.id)
   end
 
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(
         :first_name, :last_name, :email, :password, :password_confirmation, :avatar

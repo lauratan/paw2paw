@@ -43,13 +43,6 @@ ActiveRecord::Schema.define(version: 2018_07_31_190900) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string "photo_url"
-    t.integer "sitter_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sitters", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -58,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_07_31_190900) do
     t.integer "price"
     t.float "latitude"
     t.float "longitude"
+    t.json "photos"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
