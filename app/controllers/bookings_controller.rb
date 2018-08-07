@@ -21,11 +21,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index   #sitter_index?
+  def index
     #GET sitter_booking route
 
     if current_sitter 
       @sitter = Sitter.find(params[:sitter_id])
+      @owner = User.find_by(params[:user_id])
       @bookings = Booking.where(sitter_id: @sitter.id).order(updated_at: :desc)
       if current_sitter != @sitter
         redirect_to sitters_path

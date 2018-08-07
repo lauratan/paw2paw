@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row-scroll">
 			<div class="col-sm-9 col-sm-offset-1 mb-sm-40">
-				<h4 class="font-alt mb-0">My Booking Status</h4>
+				<h4 class="font-alt mb-0">User's Booking Status</h4>
 				<hr class="divider-w mt-10 mb-20">
 				<% if !(@bookings.empty?) %> 
 				<div role="tabpanel">
@@ -34,6 +34,7 @@
 									</div>
 									<br>
 									<div class="card-body">
+                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Sent at: <%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>  
 										<br>
@@ -56,6 +57,7 @@
 									</div>
 									<br>
 									<div class="card-body">
+                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Accepted at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
@@ -77,6 +79,7 @@
 									</div>
 									<br>
 									<div class="card-body">
+                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
@@ -98,6 +101,7 @@
 									</div>
 									<br>
 									<div class="card-body">
+                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>In Incomplete Since: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
