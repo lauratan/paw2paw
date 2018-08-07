@@ -8,7 +8,7 @@
           <hr class="divider-w mb-10">
 
         <h5 class="font-alt mb-0" style="font-weight:bold">Sitter:</h5>
-        <%= image_tag(@sitter_user.avatar, class:"sitter-avatar")%>
+        <%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%>
         <p class="font-alt"><%= @sitter.name %></p>
         <h5 class="font-alt" style="font-weight:bold">Dog Name:</h5>
         <p class="font-alt"><%= @booking.dog_name %></p> 
