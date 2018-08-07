@@ -68,6 +68,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find_by(id: params[:id])
     @owner = User.find_by(params[:user_id])
+    @booking_dates = BookingDate.where(booking_id: @booking.id)
   end
 
   private
