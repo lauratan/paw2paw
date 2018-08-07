@@ -9,16 +9,16 @@
 
 					<ul class="nav nav-tabs font-alt" role="tablist">
 						<li class="active">
-							<a href="#u-pending" data-toggle="tab" aria-expanded="true">Pending Bookings</a>
+							<a href="#u-pending" data-toggle="tab" aria-expanded="true">Pending</a>
 						</li>
 						<li class="">
-							<a href="#u-accepted" data-toggle="tab" aria-expanded="false">Accepted Bookings</a>
+							<a href="#u-accepted" data-toggle="tab" aria-expanded="false">Accepted</a>
 						</li>
 						<li class="">
-							<a href="#u-completed" data-toggle="tab" aria-expanded="true">Completed Bookings</a>
+							<a href="#u-completed" data-toggle="tab" aria-expanded="true">Completed</a>
 						</li>
 						<li class="">
-							<a href="#u-incomplete" data-toggle="tab" aria-expanded="true">Incomplete Bookings</a>
+							<a href="#u-incomplete" data-toggle="tab" aria-expanded="true">Incomplete</a>
 						</li>
 					</ul>
 					
@@ -27,18 +27,20 @@
 						<div class="user-pending tab-pane active" id="u-pending">							
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Pending' %>
-								
+								<div class="card font-alt">
 								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-								<p><%= @sitter_of_booking.name %></p>   
-
-								<p><%= booking.dog_name %></p>
-								<p><%= booking.created_at %></p>          
-								<p><%= booking.status %></p>
-
-								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-								Details
-								<% end %>
-
+									<div class="card-header">
+									Sitter Name: <%= @sitter_of_booking.name %>   
+									</div>
+									<br>
+									<div class="card-body">
+										<h5>Dog Name: <%= booking.dog_name %></h5>
+										<h5>Sent at: <%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>  
+										<br>
+										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
+									</div>
+								</div>
+								<br>
 								<% end %>
 							<% end %>
 						</div>
@@ -46,18 +48,21 @@
 						<div class="user-accept tab-pane" id="u-accepted">
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Accepted' %>
-
+								<div class="card font-alt">
 								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-								<p><%= @sitter_of_booking.name %></p>   
-
-								<p><%= booking.dog_name %></p>
-								<p><%= booking.created_at %></p>          
-								<p><%= booking.status %></p>
-
-								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-								Details
-								<% end %>
-
+									
+									<div class="card-header">
+									Sitter Name: <%= @sitter_of_booking.name %>
+									</div>
+									<br>
+									<div class="card-body">
+										<h5>Dog Name: <%= booking.dog_name %></h5>
+										<h5>Accepted at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+										<br>
+										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
+									</div>
+								</div>
+								<br>
 								<% end %>
 							<% end %>
 						</div>
@@ -65,18 +70,20 @@
 						<div class="user-complete tab-pane" id="u-completed">
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Completed' %>
-
+								<div class="card font-alt">
 								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-								<p><%= @sitter_of_booking.name %></p>     
-
-								<p><%= booking.dog_name %></p>
-								<p><%= booking.created_at %></p>          
-								<p><%= booking.status %></p>
-
-								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-								Details
-								<% end %>
-
+									<div class="card-header">
+										Sitter Name: <%= @sitter_of_booking.name %></p>     
+									</div>
+									<br>
+									<div class="card-body">
+										<h5>Dog Name: <%= booking.dog_name %></h5>
+										<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+										<br>
+										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
+									</div>
+								ß</div>
+								<br>
 								<% end %>
 							<% end %>
 						</div>
@@ -84,22 +91,23 @@
 						<div class="user-incomplete tab-pane" id="u-incomplete">
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Incomplete' || booking.status == 'Rejected' %>  
-
-								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-								<p><%= @sitter_of_booking.name %></p>       
-
-								<p><%= booking.dog_name %></p>
-								<p><%= booking.created_at %></p>          
-								<p><%= booking.status %></p>
-
-								<%= link_to user_bookings_show_path(params[:user_id], booking.id) do %>
-								Details
-								<% end %>
-
+									<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
+								<div class="card font-alt">
+									<div class="card-header">
+										Sitter Name: <%= @sitter_of_booking.name %>      
+									</div>
+									<br>
+									<div class="card-body">
+										<h5>Dog Name: <%= booking.dog_name %></h5>
+										<h5>In Incomplete Since: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+										<br>
+										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
+									</div>
+								</div>
+								<br>
 								<% end %>
 							<% end %>
 						</div>
-
 					</div>
 
 				</div>

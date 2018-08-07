@@ -1,8 +1,6 @@
 /*
  *= require owl.carousel
  *= require owl.theme
- *= require_tree .
- *= require_self
  */
 @import 'calendar';
 
@@ -194,3 +192,5 @@ Google map
 --------------------------------------------------------------*/
 
 @import "media_querries";
+
+@import "bookings";
