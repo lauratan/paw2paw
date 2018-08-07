@@ -34,7 +34,7 @@
 									</div>
 									<br>
 									<div class="card-body">
-                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
+                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Sent at: <%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>  
 										<br>
@@ -57,7 +57,7 @@
 									</div>
 									<br>
 									<div class="card-body">
-                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
+                                        <span><%= image_tag(@sitter_user.avatar.mediumsitter)%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Accepted at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
@@ -79,7 +79,7 @@
 									</div>
 									<br>
 									<div class="card-body">
-                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
+                                        <span><%= image_tag(@sitter_user.avatar.mediumsitter)%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
@@ -101,7 +101,7 @@
 									</div>
 									<br>
 									<div class="card-body">
-                                        <span><%= image_tag(@sitter_user.avatar.medium.url, class:"owner-avatar")%></span>
+                                        <span><%= image_tag(@sitter_user.avatar.mediumsitter)%></span>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>In Incomplete Since: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
