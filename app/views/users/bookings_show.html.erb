@@ -3,18 +3,32 @@
     <div class="row-scroll">
 
       <div class="user-booking-details">
-        <h5 class="font-alt">Booking Details Page</h5>
-        <hr class="divider-w mb-10">
+        <h4 class="font-alt">Booking Details Page</h4>
+          <hr class="divider-w mb-10">
+          <hr class="divider-w mb-10">
 
-        <p><%= @sitter.name %></p>  
-        <p><%= @booking.dog_name %></p>
-        <p><%= @booking.dog_breed %></p>  
-        <p><%= @booking.dog_size %></p>  
-        <p><%= @booking.dog_age %></p>  
-        <p><%= @booking.dog_gender %></p> 
-        <p><%= @booking.info %></p>  
-        <p><%= @booking.status %></p>
+        <h5 class="font-alt mb-0" style="font-weight:bold">Sitter Name:</h5>
+        <p class="font-alt"><%= @sitter.name %></p>
+        <h5 class="font-alt mb-0" style="font-weight:bold">Dog Owner Name:</h5>
+        <p class="font-alt"><%= @owner.first_name %></p>
+        <h5 class="font-alt" style="font-weight:bold">Dog Name:</h5>
+        <p class="font-alt"><%= @booking.dog_name %></p> 
+        <h5 class="font-alt" style="font-weight:bold">Dog Breed:</h5>
+        <p class="font-alt"><%= @booking.dog_breed %></p>
+        <h5 class="font-alt" style="font-weight:bold">Dog Size:</h5>
+        <p class="font-alt"><%= @booking.dog_size %></p>
+        <h5 class="font-alt" style="font-weight:bold">Dog Age:</h5>
+        <p class="font-alt"><%= @booking.dog_age %></p>
+        <h5 class="font-alt" style="font-weight:bold">Dog Gender:</h5>
+        <p class="font-alt"><%= @booking.dog_gender %></p>  
+        <h5 class="font-alt" style="font-weight:bold">Other Info:</h5>
+        <p class="font-alt"><%= @booking.info %></p>
+        <h5 class="font-alt" style="font-weight:bold">Booking Status:</h5>
+        <p class="font-alt"><%= @booking.status %></p>    
 
+
+
+        <p>booking dates!</p>
       </div>
 
     </div>
