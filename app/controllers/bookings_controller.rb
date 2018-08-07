@@ -41,8 +41,9 @@ class BookingsController < ApplicationController
     @booking.update!(:status => 'Accepted')
     @booking_dates = BookingDate.where(booking_id: @booking.id)
     @booking_dates.each do |booking_date|
-      @avail = Availability.find_by(avail_date: booking_date.date, sitter_id: @booking.sitter_id)
-      Availability.find_by(id:@avail.id).destroy
+      if Availability.find_by(avail_date: booking_date.date, sitter_id: @booking.sitter_id)
+        Availability.find_by(avail_date: booking_date.date, sitter_id: @booking.sitter_id).destroy
+      end
     end
     redirect_to sitter_path(@booking.sitter_id)
   end
