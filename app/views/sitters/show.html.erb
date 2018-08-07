@@ -40,7 +40,7 @@
 						<div class="col-sm-8 map-container">
 							<h4 class="font-alt mb-0" style="font-weight:bold">Gallery</h4>
 							<hr class="divider-w mt-10 mb-20">
-							<div id="owl-carousel" class="owl-carousel owl-theme">
+							<div class="owl-carousel owl-theme owl-loaded">
 								<% @photos.each do |photo| %>
 									<%= image_tag photo.normal.url %>
 								<% end %>
@@ -69,6 +69,10 @@
         loop:true,
         margin:10,
         nav:true,
-        items: 1
+				items: 2,
+				center: true,
+				autoplay: true,
+				autoplayHoverPause: true,
+				navText: ['<i class="fa fa-chevron-left fa-2x"></i>', '<i class="fa fa-chevron-right fa-2x"></i>']
     })
 </script>
