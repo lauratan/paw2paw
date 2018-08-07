@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_07_31_190900) do
     t.integer "price"
     t.float "latitude"
     t.float "longitude"
+    t.json "photos"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

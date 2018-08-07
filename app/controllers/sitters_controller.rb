@@ -64,7 +64,8 @@ class SittersController < ApplicationController
       :address,
       :summary,
       :rules,
-      :price
+      :price,
+      {photos: []}
     )
   end
 
