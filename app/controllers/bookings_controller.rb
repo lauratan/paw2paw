@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
         Availability.find_by(avail_date: booking_date.date, sitter_id: @booking.sitter_id).destroy
       end
     end
-    redirect_to sitter_path(@booking.sitter_id)
+    redirect_to sitter_bookings_path(@booking.sitter_id)
   end
   
   def reject
