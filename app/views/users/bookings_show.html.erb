@@ -11,6 +11,9 @@
         <%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%>
         <p class="font-alt"><%= @sitter.name %></p>
         <h5 class="font-alt" style="font-weight:bold">Dog Name:</h5>
+        <%= image_tag(@booking.dog_avatar.normal.url)%>
+        <p class="font-alt"><%= @booking.dog_name %></p> 
+        <h5 class="font-alt" style="font-weight:bold">Dog Name:</h5>
         <p class="font-alt"><%= @booking.dog_name %></p> 
         <h5 class="font-alt" style="font-weight:bold">Dog Breed:</h5>
         <p class="font-alt"><%= @booking.dog_breed %></p>
