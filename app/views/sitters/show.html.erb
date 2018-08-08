@@ -73,10 +73,10 @@
 						</ul>
 					</div>
 
-
 					<div>
 						<h4 class="font-alt mb-0" style="font-weight:bold">Reviews</h4>
 						<hr class="divider-w mt-10 mb-20">
+						<% if current_user %>
 						<%= form_for :review, url: sitter_reviews_path(@sitter.id) do |f| %>
 						<div class="form-group">
 						<%= f.label "Rating:", class: 'font-alt'%> 
@@ -92,6 +92,11 @@
 						</div>
 						<% end %>
 					</div>
+					<% else %>
+						<div class="alert alert-info" role="alert">
+							Please <%= link_to "Log in", new_session_path %> to leave a review for <%= @user.first_name %>!
+						</div>      
+					<% end %>
 
 					<div>
 						<hr class="divider-w mt-10 mb-20">
