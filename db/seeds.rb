@@ -754,4 +754,107 @@ booking_dates = BookingDate.create!([
 ])
 
 
+reviews = Review.create!([
+    {
+        rating: 5,
+        content: "This sitter is awesome",
+        sitter_id: 1,
+        user_id: 2,
+    },
+    {
+        rating: 4,
+        content: "She is very nice.",
+        sitter_id: 1,
+        user_id: 3,
+    },
+    {
+        rating: 4,
+        content: "Good sitter, very nice to me. My doggie had a good time!",
+        sitter_id: 1,
+        user_id: 4,
+    },
+    {
+        rating: 5,
+        content: "I have worked with her for several times now. She is very good!",
+        sitter_id: 1, 
+        user_id: 2,
+    },
+    {
+        rating: 4,
+        content: "Good.",
+        sitter_id: 1,
+        user_id: 5
+    },
+    {
+        rating: 3,
+        content: "When I got there, she is not at home.",
+        sitter_id: 1, 
+        user_id: 6,
+    },
+    {
+        rating: 3,
+        content: "There is another dog, but she didn't tell me in advance.",
+        sitter_id: 1,
+        user_id: 7,
+    },
+    {
+        rating: 3,
+        content: "Not bad.",
+        sitter_id: 1,
+        user_id: 8,
+    },
+    {
+        rating: 4,
+        content: "He is very nice and easy-going.",
+        sitter_id: 2, 
+        user_id: 1,
+    },
+    {
+        rating: 4,
+        content: "My doggie had a good time there.",
+        sitter_id: 2, 
+        user_id: 6,
+    },
+    {
+        rating: 4,
+        content: "He is very thoughtful. Having good snacks for dogs.",
+        sitter_id: 2,
+        user_id: 4,
+    },
+    {
+        rating: 5,
+        content: "Best of the best!",
+        sitter_id: 3,
+        user_id: 7,
+    },
+    {
+        rating: 5,
+        content: "My dog didn't want to go when I picked him up. 😂",
+        sitter_id: 3,
+        user_id: 1,
+    },
+    {
+        rating: 3,
+        content: "Not bad",
+        sitter_id: 4,
+        user_id: 8,
+    },
+    {
+        rating: 4,
+        content: "Nice sitter to work with. Recommanded!",
+        sitter_id: 5,
+        user_id: 3,
+    },
+    {
+        rating: 4,
+        content: "Good!",
+        sitter_id: 5,
+        user_id: 8,
+    }
+
+])
+
+
+
+
 puts 'SEED DONE'
