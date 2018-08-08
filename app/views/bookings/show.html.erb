@@ -12,6 +12,7 @@
         <p class="font-alt"><%= "#{@owner.first_name} #{@owner.last_name}" %></p>  
 
         <h5 class="font-alt" style="font-weight:bold">Dog Name:</h5>
+        <%= image_tag(@booking.dog_avatar.normal.url)%>
         <p class="font-alt"><%= @booking.dog_name %></p> 
 
         <h5 class="font-alt" style="font-weight:bold">Dog Breed:</h5>

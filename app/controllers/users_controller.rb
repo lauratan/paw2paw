@@ -21,6 +21,12 @@ class UsersController < ApplicationController
     if current_user
       @user = User.find(params[:user_id])
       @bookings = Booking.where(user_id: current_user.id).order(created_at: :desc)
+      
+      @bookings.each do |booking|
+        @sitter = Sitter.find_by(id: booking.sitter_id)
+        @sitter_user = User.find_by(id: @sitter.user_id)
+      end
+
       if current_user != @user
         redirect_to sitters_path
       end
