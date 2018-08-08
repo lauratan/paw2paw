@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-    mount_uploaders :dog_avatar, DogAvatarUploader
+    mount_uploader :dog_avatar, DogAvatarUploader
 
     has_many :booking_dates
     belongs_to :user
