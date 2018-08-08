@@ -4,16 +4,21 @@
 .sidebar-sitter-details {
     position: relative;
     float: left;
-    height: 85vh;
+    width:30%;
     overflow-y: scroll;
     top: 10px;
     bottom: 0;
-    padding-right: 65px;
+    padding-right: 45px;
     padding-left: 10px;
     padding-bottom: 35px;
     
     .widget {
         margin-bottom: 60px;
+        .ratings {
+            font-family: "Roboto Condensed", sans-serif;
+            letter-spacing: 2px;
+            text-align: center;   
+        }
         .widget-title {
             border-bottom: 1px dotted #c2c2c2;
             font-size: 14px;
@@ -99,4 +104,3 @@
 #popup-link:hover {
     color: rgb(129, 120, 120);
 }
-
