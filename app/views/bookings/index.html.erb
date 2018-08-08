@@ -29,11 +29,11 @@
 						<div class="sitter-pending tab-pane active" id="s-pending">							
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Pending' %>
-									<div class="card font-alt">
+									<div class="card">
 										<% @owner = User.find_by(id: booking.user_id) %>
                                             
-											<div class="card-header">
-												Request Made by: <%= "#{@owner.first_name} #{@owner.last_name}" %> 
+											<div class="card-header font-alt">
+												Request Made by: <%= "#{@owner.first_name} #{@owner.last_name}" %>
 												<%= link_to '<button class="btn btn-danger btn-circle btn-xs" type="button"><i class="fa fa-times" aria-hidden="true"></i>Reject</button>'.html_safe, sitter_booking_reject_path(params[:sitter_id], booking.id), method: :patch %>
 												<%= link_to '<button class="btn btn-success btn-circle btn-xs" type="button"><i class="fa fa-check" aria-hidden="true"></i>Accept</button>'.html_safe, sitter_booking_accept_path(params[:sitter_id], booking.id), method: :patch %>
 											</div>
@@ -44,8 +44,10 @@
                                                     <span><%= image_tag(booking.dog_avatar.normal.url, class:"owner-avatar")%></span>
                                                 </div>
 
-												<h5>Dog Name: <%= booking.dog_name %></h5>
-												<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+												<strong class="font-alt">Dog Name: </strong>
+												<h5 class="font-alt-regular"><%= booking.dog_name %></h5>
+												<strong class="font-alt">Completed at: </strong>    
+												<h5 class="font-alt-regular"><%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %> </h5>  
 												<br>
 												<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, sitter_booking_path(params[:sitter_id], booking.id) %>
 											</div>
