@@ -1,4 +1,6 @@
 class Booking < ApplicationRecord
+    mount_uploader :dog_avatar, DogAvatarUploader
+
     has_many :booking_dates
     belongs_to :user
     belongs_to :sitter

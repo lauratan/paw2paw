@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row-scroll">
 			<div class="col-sm-9 col-sm-offset-1 mb-sm-40">
-				<h4 class="font-alt mb-0">My Booking Status</h4>
+				<h4 class="font-alt mb-0">User's Booking Status</h4>
 				<hr class="divider-w mt-10 mb-20">
 				<% if !(@bookings.empty?) %> 
 				<div role="tabpanel">
@@ -33,11 +33,14 @@
 									Sitter Name: <%= @sitter_of_booking.name %>   
 									</div>
 									<br>
-									<div class="card-body ">
-										<h5 class="font-alt">Dog Name:</h5> 
-										<p class="font-alt-regular"><%= booking.dog_name %></p>
-										<h5 class="font-alt">Sent at:</h5>  
-										<p class="font-alt-regular"><%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %> </p>
+
+									<div class="card-body">
+                                        <div class="booking-avatar">
+                                            <span><%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%></span>
+                                            <span><%= image_tag(booking.dog_avatar.normal.url, class:"sitter-avatar")%></span>
+                                        </div>
+										<h5 class="font-alt">Dog Name: <%= booking.dog_name %></h5>
+										<h5 class="font-alt">Sent at: <%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>  
 										<br>
 										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
 									</div>
@@ -58,6 +61,10 @@
 									</div>
 									<br>
 									<div class="card-body">
+                                        <div class="booking-avatar">
+                                            <span><%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%></span>
+                                            <span><%= image_tag(booking.dog_avatar.normal.url, class:"sitter-avatar")%></span>
+                                        </div>
 										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Accepted at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
@@ -79,7 +86,10 @@
 									</div>
 									<br>
 									<div class="card-body">
-										<h5>Dog Name: <%= booking.dog_name %></h5>
+                                        <div class="booking-avatar">
+                                            <span><%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%></span>
+                                            <span><%= image_tag(booking.dog_avatar.normal.url, class:"sitter-avatar")%></span>
+                                        </div>										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
 										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
@@ -100,7 +110,10 @@
 									</div>
 									<br>
 									<div class="card-body">
-										<h5>Dog Name: <%= booking.dog_name %></h5>
+                                        <div class="booking-avatar">
+                                            <span><%= image_tag(@sitter_user.avatar.medium.url, class:"sitter-avatar")%></span>
+                                            <span><%= image_tag(booking.dog_avatar.normal.url, class:"sitter-avatar")%></span>
+                                        </div>										<h5>Dog Name: <%= booking.dog_name %></h5>
 										<h5>In Incomplete Since: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
 										<br>
 										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
