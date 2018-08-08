@@ -13,13 +13,20 @@
       <br>
       <% end  %>
 
+      <li>
+        <% @average = Review.where(sitter_id: sitter.id).average(:rating) %>
+        <% @average.to_i.times do %>
+        ⭐️
+        <% end %>
+      </li>
+
       <li style="font-size: 18px">  
         <%= sitter.summary %>
       </li>
     </ul>
     
     <footer class="card text-center">
-			<h2> <%= sitter.price %>/night <h2>
+			<h2><i class="fa fa-usd" aria-hidden="true"></i> <%= sitter.price %> / night <h2>
 			
 			<%= link_to sitter, class: 'btn btn-default pull-center' do %>
 				Details

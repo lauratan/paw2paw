@@ -7,13 +7,13 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to sitter_path(@sitter.id)
     else 
-      redirect_to :back
+      redirect_to sitter_path(@sitter.id)
     end
   end  
 
   def destroy
     @delete = Review.find(params[:id]).destroy
-    redirect_to :back
+    redirect_to sitter_path(params[:sitter_id])
   end
 
   private
