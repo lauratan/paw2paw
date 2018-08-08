@@ -14,6 +14,7 @@ class SittersController < ApplicationController
     end
     @sitter = Sitter.find params[:id]
     @photos = @sitter.photos
+    @reviews = Review.where(sitter_id: @sitter.id)
   end
 
   def new

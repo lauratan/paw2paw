@@ -4,61 +4,128 @@
             <div class="sidebar-sitter-details">
                 <div class="widget">
                     <section class="sitter-index">
-											<h3 class="font-alt mb-0"><%= @sitter.name %></h3>
+						<h3 class="font-alt mb-0"><%= @sitter.name %></h3>
 
-											<ul class="widget-posts">
-													<li>
-													<%  @user = User.find_by(id: @sitter.user_id) %>
-													<%= image_tag(@user.avatar.medium.url, class:'sitter-avatar')%>
-													</li>
-											</ul>
-											<br>
-											<div>
-												<h4 class="font-alt mb-0" style="font-weight:bold">Price</h4> 
-													<hr class="divider-w mt-10 mb-20">                 
-													<h4 class="font-alt mb-0"><i class="fa fa-usd" aria-hidden="true"></i><%= @sitter.price %>/night</h4>
-											</div>
-											<br>
-											<script> ReactRailsUJS.mountComponents() </script>
-											<div class="DayPicker" lang="en">
-													<h4 class="font-alt mb-0" style="font-weight:bold">Availability</h4>
-													<hr class="divider-w mt-10 mb-20">
-													<%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
-													<% if current_user %> 
-														<% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
-															<%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button"><i class="fa fa-calendar" aria-hidden="true"></i>Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
-														<% end %>
-													<% else %>
-														<div class="alert alert-info" role="alert">
-															<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to make a booking with <%= @user.first_name %>!
-														</div>      
-													<% end%>
-											</div>
+						<ul class="widget-posts">
+							<li>
+							<%  @user = User.find_by(id: @sitter.user_id) %>
+							<%= image_tag(@user.avatar.medium.url, class:'sitter-avatar')%>
+							</li>
+							<li class="ratings">
+							<% @average = Review.where(sitter_id: @sitter.id).average(:rating) %>
+							<span>
+							<% @average.to_i.times do %>
+							⭐️
+							<% end %> 
+							</span>    
+									
+							<span >&nbsp(<%= Review.where(sitter_id: @sitter.id).count %> Reviews)</span>
+							</li>
+						</ul>
+						<br>
+						<div>
+							<h4 class="font-alt mb-0" style="font-weight:bold">Price</h4> 
+								<hr class="divider-w mt-10 mb-20">                 
+								<h4 class="font-alt mb-0"><i class="fa fa-usd" aria-hidden="true"></i><%= @sitter.price %>/night</h4>
+						</div>
+						<br>
+						<script> ReactRailsUJS.mountComponents() </script>
+						<div class="DayPicker" lang="en">
+							<h4 class="font-alt mb-0" style="font-weight:bold">Availability</h4>
+							<hr class="divider-w mt-10 mb-20">
+							<%= react_component('Availability', {dates: @dates}, {prerender: true}) %>
+							<% if current_user %> 
+								<% if Sitter.find_by(user_id: current_user.id) == nil || (current_sitter.id != @sitter.id)%>
+									<%= link_to '<button class="btn btn-border-d btn-round btn-block" type="button"><i class="fa fa-calendar" aria-hidden="true"></i>Booking</button>'.html_safe, new_sitter_booking_path(@sitter.id) %>    
+								<% end %>
+							<% else %>
+								<div class="alert alert-info" role="alert">
+									<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to make a booking with <%= @user.first_name %>!
+								</div>      
+							<% end%>
+						</div>
+						<br>
+						<br>
+						<br>
                     </section>
                 </div>
             </div>
-						<div class="col-sm-8 map-container">
-							<h4 class="font-alt mb-0" style="font-weight:bold">Gallery</h4>
-							<hr class="divider-w mt-10 mb-20">
-							<div class="owl-carousel owl-theme owl-loaded">
-								<% @photos.each do |photo| %>
-									<%= image_tag photo.normal.url %>
+				<div class="col-sm-8 map-container">
+					<h4 class="font-alt mb-0" style="font-weight:bold">Gallery</h4>
+					<hr class="divider-w mt-10 mb-20">
+					<div class="owl-carousel owl-theme owl-loaded">
+						<% @photos.each do |photo| %>
+							<%= image_tag photo.normal.url %>
+						<% end %>
+					</div>
+
+					<div class="sitter-details">
+						<h4 class="font-alt mb-0" style="font-weight:bold">Summary</h4>
+						<hr class="divider-w mt-10 mb-20">
+						<h8 class="font-alt-regular mb-0"><%= @sitter.summary %>
+						Doggo ipsum the neighborhood pupper pats shoob long woofer you are doin me a concern long doggo, very hand that feed shibe extremely cuuuuuute borking doggo. Sub woofer floofs yapper blop pupperino pupper long doggo pupperino, big ol I am bekom fat adorable doggo he made many woofs long doggo. Many pats heckin floofs pats aqua doggo, snoot clouds. Extremely cuuuuuute big ol super chub you are doing me the shock fat boi, clouds fat boi. Pats tungg you are doing me the shock very good spot long bois, borkf blop long water shoob. He made many woofs I am bekom fat you are doing me a frighten waggy wags you are doing me a frighten maximum borkdrive, length boy pupper vvv. Doge woofer sub woofer he made many woofs doing me a frighten, what a nice floof yapper. Sub woofer much ruin diet borking doggo heckin angery woofer mlem porgo floofs, heckin good boys and girls puggorino dat tungg tho wow very biscit blep.</h8>
+						<h4 class="font-alt mb-0" style="font-weight:bold">Rules</h4>   
+						<hr class="divider-w mt-10 mb-20">               
+						<h8 class="font-alt-regular mb-0">
+						<ul>
+						<li><%= @sitter.rules %></li>
+						<li>ur givin me a spook. Such treat many pats such treat very good spot doing me a frighten most angery pupper I have ever seen, heckin angery woofer pupperino heckin good boys and girls. Pupperino puggorino sub woofer wow very biscit shoob waggy wags borking doggo, thicc extremely cuuuuuute you are doing me the shock shooberino. Lotsa pats heckin good boys wow such tempt such treat I am bekom fat, porgo what a nice floof floofs. pupperino floofs. Big ol pupper long bois length boy sub woofer, adorable doggo. Yapper smol borking doggo with a long snoot for pats porgo you are doin me a concern, snoot. Shibe stop it fren pats much ruin diet, long woofer. Stop it fren woofer stop it fren maximum borkdrive long doggo, snoot dat tungg tho. wow such tempt heck big ol pupper. Ruff woofer boofers bork sub woofer ruff ur givin me a spook pats, puggo such treat boof I am bekom fat ruff very hand that feed shibe.  Doggorino wow such tempt very good spot very jealous pupper blop, you are doing me the shock sub woofer. Shooberino pats very good spot noodle horse, blep.</li></h8>
+						</ul>
+					</div>
+
+
+					<div>
+						<h4 class="font-alt mb-0" style="font-weight:bold">Reviews</h4>
+						<hr class="divider-w mt-10 mb-20">
+						<%= form_for :review, url: sitter_reviews_path(@sitter.id) do |f| %>
+						<div class="form-group">
+						<%= f.label "Rating:", class: 'font-alt'%> 
+						<%= f.select :rating, options_for_select([["Select Rating", ""], 1, 2, 3, 4, 5 ])%>
+						</div>
+						<div class="form-group">
+						<%= f.label "Description:", class: 'font-alt'%>
+						<br>
+						<%= f.text_area :content, placeholder: "Leave a comment", cols: "60", rows: "5" %>
+						</div>
+						<div class="form-group">
+						<%= f.submit "Submit", class: "btn btn-round btn-b" %>
+						</div>
+						<% end %>
+					</div>
+
+					<div>
+						<hr class="divider-w mt-10 mb-20">
+						<% @reviews.reverse.each do |review| %>
+							<% User.where(id: review.user_id).each do |user| %>
+							<div class="well">
+							<h8 class="font-alt">
+								<%= image_tag user.avatar.thumb.url %>
+								<%= user.first_name %>
+								<div>
+								<br>
+								Rating:
+								<p><% review.rating.times do %>
+								⭐️
+								<% end %>
+								</p>
+								</div>
+							</h8>
+							<div class="font-alt-regular mb-0">
+								<h8 class="font-alt"> Description:  </h8>
+								<p><%= review.content %></p>
+							</div>
+								<% if user == current_user %>
+								<div>
+								<br>
+								<%= link_to 'Delete', "/sitters/#{@sitter.id}/reviews/#{review.id}", method: :delete, class: 'btn btn-danger btn-circle' %>
+								</div>
 								<% end %>
 							</div>
-
-							<div class="sitter-details">
-								<h4 class="font-alt mb-0" style="font-weight:bold">Summary</h4>
-								<hr class="divider-w mt-10 mb-20">
-								<h8 class="font-alt mb-0"><%= @sitter.summary %>
-								Doggo ipsum the neighborhood pupper pats shoob long woofer you are doin me a concern long doggo, very hand that feed shibe extremely cuuuuuute borking doggo. Sub woofer floofs yapper blop pupperino pupper long doggo pupperino, big ol I am bekom fat adorable doggo he made many woofs long doggo. Many pats heckin floofs pats aqua doggo, snoot clouds. Extremely cuuuuuute big ol super chub you are doing me the shock fat boi, clouds fat boi. Pats tungg you are doing me the shock very good spot long bois, borkf blop long water shoob. He made many woofs I am bekom fat you are doing me a frighten waggy wags you are doing me a frighten maximum borkdrive, length boy pupper vvv. Doge woofer sub woofer he made many woofs doing me a frighten, what a nice floof yapper. Sub woofer much ruin diet borking doggo heckin angery woofer mlem porgo floofs, heckin good boys and girls puggorino dat tungg tho wow very biscit blep.</h8>
-								<h4 class="font-alt mb-0" style="font-weight:bold">Rules</h4>   
-								<hr class="divider-w mt-10 mb-20">               
-								<h8 class="font-alt mb-0">
-								<ul>
-								<li><%= @sitter.rules %></li>
-								<li>ur givin me a spook. Such treat many pats such treat very good spot doing me a frighten most angery pupper I have ever seen, heckin angery woofer pupperino heckin good boys and girls. Pupperino puggorino sub woofer wow very biscit shoob waggy wags borking doggo, thicc extremely cuuuuuute you are doing me the shock shooberino. Lotsa pats heckin good boys wow such tempt such treat I am bekom fat, porgo what a nice floof floofs. pupperino floofs. Big ol pupper long bois length boy sub woofer, adorable doggo. Yapper smol borking doggo with a long snoot for pats porgo you are doin me a concern, snoot. Shibe stop it fren pats much ruin diet, long woofer. Stop it fren woofer stop it fren maximum borkdrive long doggo, snoot dat tungg tho. wow such tempt heck big ol pupper. Ruff woofer boofers bork sub woofer ruff ur givin me a spook pats, puggo such treat boof I am bekom fat ruff very hand that feed shibe.  Doggorino wow such tempt very good spot very jealous pupper blop, you are doing me the shock sub woofer. Shooberino pats very good spot noodle horse, blep.</li></h8>
-								</ul>
-							</div>
+							<% end %>
+						<% end %>
+					</div>
+			<br>
+			<br>
             </div>
         </div>    
     </div>

@@ -4,6 +4,7 @@ class Sitter < ApplicationRecord
     has_many :availabilities
     has_many :bookings
     has_many :users, through: :bookings
+    has_many :reviews
     belongs_to :user
     
     validates :name, :address, :summary, :rules, :user_id, presence: true
