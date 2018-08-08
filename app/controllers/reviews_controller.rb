@@ -3,16 +3,17 @@ class ReviewsController < ApplicationController
   def create
     @sitter = Sitter.find_by(id: params[:sitter_id])
     @review = @sitter.reviews.create(review_params)
+
     if @review.save
       redirect_to sitter_path(@sitter.id)
     else 
-      redirect_to sitter_path(@sitter.id)
+      redirect_to :back
     end
   end  
 
   def destroy
     @delete = Review.find(params[:id]).destroy
-    redirect_to sitter_path(params[:sitter_id])
+    redirect_to :back
   end
 
   private

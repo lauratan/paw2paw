@@ -27,18 +27,15 @@
 						<div class="user-pending tab-pane active" id="u-pending">							
 							<% @bookings.each do |booking| %>
 								<% if booking.status == 'Pending' %>
-								<div class="card">
+								<div class="card font-alt">
 								<% @sitter_of_booking = Sitter.find_by(id: booking.sitter_id) %>
-									<div class="card-header font-alt">
+									<div class="card-header">
 									Sitter Name: <%= @sitter_of_booking.name %>   
 									</div>
 									<br>
-									<div class="card-body ">
-									
-										<h5 class="font-alt">Dog Name:</h5> 
-										<p class="font-alt-regular"><%= booking.dog_name %></p>
-										<h5 class="font-alt">Sent at:</h5>  
-										<p class="font-alt-regular"><%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %> </p>
+									<div class="card-body">
+										<h5>Dog Name: <%= booking.dog_name %></h5>
+										<h5>Sent at: <%= booking.created_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>  
 										<br>
 										<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, user_bookings_show_path(params[:user_id], booking.id) %>
 									</div>
