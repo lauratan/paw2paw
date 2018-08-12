@@ -43,7 +43,7 @@ Pet owners can use Paw 2 Paw to find reliable sitters nearby. Sitters can accept
 ## Getting Started
 
 - Clone the repository
-- Install the dependencies: bundel install
+- Install the gems: bundle install
 - Install the dependencies: npm install/yarn add
 - Default port: 3000
 
