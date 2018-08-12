@@ -16,7 +16,7 @@
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sitter Menu</a>
           <ul class="dropdown-menu">
            <li><%= link_to 'My Sitter Page', sitter_path(current_sitter.id) %></li>
-           <li><%= link_to "Sitter's Booking Status", sitter_bookings_path(current_sitter.id) %></li>           
+           <li><%= link_to "Incoming Booking Requests", sitter_bookings_path(current_sitter.id) %></li>           
            <li><%= link_to 'Edit', edit_sitter_path(current_sitter.id) %></li>
           </ul>  
         </li>
