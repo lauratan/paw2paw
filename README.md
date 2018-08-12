@@ -56,7 +56,7 @@ npm install
 
 - Create and load database:
 ```js
-db:reset
+rails db:reset
 ```
 
 - Run the server:
