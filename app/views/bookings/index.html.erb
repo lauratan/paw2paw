@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row-scroll">
 			<div class="col-sm-9 col-sm-offset-1 mb-sm-40">
-				<h4 class="font-alt mb-0">Sitter's Booking Status</h4>
+				<h4 class="font-alt mb-0">Incoming Booking Requests</h4>
 				<hr class="divider-w mt-10 mb-20">
 				
 				<% if !(@bookings.empty?) %> 
@@ -65,8 +65,8 @@
 										<% @owner = User.find_by(id: booking.user_id) %>
 										<div class="card-header">
 											REQUEST MADE BY: <%= "#{@owner.first_name} #{@owner.last_name}" %>
-											<%= link_to '<button class="btn btn-primary btn-circle btn-xs" type="button"><i class="fa fa-check" aria-hidden="true"></i>Completed</button>'.html_safe, sitter_booking_complete_path(params[:sitter_id], booking.id), method: :patch %>
 											<%= link_to '<button class="btn btn-danger btn-circle btn-xs" type="button"><i class="fa fa-times" aria-hidden="true"></i>Incomplete</button>'.html_safe, sitter_booking_incomplete_path(params[:sitter_id], booking.id), method: :patch %>
+											<%= link_to '<button class="btn btn-primary btn-circle btn-xs" type="button"><i class="fa fa-check" aria-hidden="true"></i>Complete</button>'.html_safe, sitter_booking_complete_path(params[:sitter_id], booking.id), method: :patch %>
 										</div>
 										<br>
 										<div class="card-body">
@@ -75,8 +75,10 @@
                                                 <span><%= image_tag(booking.dog_avatar.normal.url, class:"owner-avatar")%></span>
                                             </div>
 
-											<h5>Dog Name: <%= booking.dog_name %></h5>
-											<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+											<strong class="font-alt">Dog Name: </strong>
+											<h5 class="font-alt-regular"><%= booking.dog_name %></h5>
+											<strong class="font-alt">Completed at: </strong>    
+											<h5 class="font-alt-regular"><%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %> </h5>        
 											<br>
 											<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, sitter_booking_path(params[:sitter_id], booking.id) %>
 										</div>
@@ -101,8 +103,10 @@
                                                 <span><%= image_tag(@owner.avatar.medium.url, class:"owner-avatar")%></span>
                                                 <span><%= image_tag(booking.dog_avatar.normal.url, class:"owner-avatar")%></span>
                                             </div>
-											<h5>Dog Name: <%= booking.dog_name %></h5>
-											<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+											<strong class="font-alt">Dog Name: </strong>
+											<h5 class="font-alt-regular"><%= booking.dog_name %></h5>
+											<strong class="font-alt">Completed at: </strong>    
+											<h5 class="font-alt-regular"><%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %> </h5> 
 											<br>
 											<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, sitter_booking_path(params[:sitter_id], booking.id) %>
 										</div>
@@ -125,8 +129,10 @@
                                                     <span><%= image_tag(@owner.avatar.medium.url, class:"owner-avatar")%></span>
                                                     <span><%= image_tag(booking.dog_avatar.normal.url, class:"owner-avatar")%></span>
                                                 </div>
-												<h5>Dog Name: <%= booking.dog_name %></h5>
-												<h5>Completed at: <%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %></h5>          
+												<strong class="font-alt">Dog Name: </strong>
+												<h5 class="font-alt-regular"><%= booking.dog_name %></h5>
+												<strong class="font-alt">Completed at: </strong>    
+												<h5 class="font-alt-regular"><%= booking.updated_at.strftime("%Y-%m-%d at %I:%M%p") %> </h5>       
 												<br>
 												<%= link_to '<button class="btn btn-g btn-circle" type="button">Booking Details</button>'.html_safe, sitter_booking_path(params[:sitter_id], booking.id) %>
 											</div>
