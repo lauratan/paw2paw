@@ -17,7 +17,7 @@
                   <%= 
                   map(:center => {
                     :latlng => [49.2827290, -123.1207380],
-                    :zoom => 14.5
+                    :zoom => 14
                     })
                   %>
                 </div>
@@ -33,7 +33,7 @@
 	  var longitude = position.coords.longitude;
 	  });
 
-	  map.locate({setView: true, maxZoom: 14.5});
+	  map.locate({setView: true, maxZoom: 14});
 	  function onLocationFound(e) {
 
 		L.marker(e.latlng).addTo(map)

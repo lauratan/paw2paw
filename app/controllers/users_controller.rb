@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       
       @bookings.each do |booking|
         @sitter = Sitter.find_by(id: booking.sitter_id)
-        @sitter_user = User.find_by(id: @sitter.user_id)
+        
       end
 
       if current_user != @user
