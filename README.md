@@ -10,39 +10,40 @@
 Pet owners can use Paw 2 Paw to find reliable sitters nearby. Sitters can accept/reject booking requests. After the event is over, pet owners can make reviews for sitters. Sitters can edit sitter profile and add availabilities. Pet owners(regular users) can also become sitters. 
 
 ## Features
-- Users can find sitters nearby base on their current location.
+
+- Users can find sitters nearby based on their current locations.
 - Users can see the reviews and ratings of sitters.
-- Users can make booking with sitters.
+- Users can make bookings with sitters.
 - Users can write reviews for sitters.
 - Users can become sitters.
-- Sitters can choose to accept or reject incoming booking request.
+- Sitters can choose to accept or reject incoming booking requests.
 - Sitters can add availabities and edit their profiles.
 
-## Technical Information/ Stack
+## Technical Information / Stack
 
-  Paw 2 Paw is a full stack web app, built with the following:
-  - Ruby 
-  - Rails
-  - React
-  - PostgreSQL
-  - Webpacker
-  - jQuery
-  - Bootstrap
-  - SASS
-  - Babel
-  - leaflet-rails
-  - geocoder
-  - react-day-picker
-  - carrierwave
+Paw 2 Paw is a full stack web app, built with the following:
+- Ruby on Rails
+- PostgreSQL
+- React
+- Bootstrap
+- SASS
 
-## Dependencies
+## Gems / Dependencies
 
-- Rails 5.2.0
-- ruby  2.5.0
+- react-rails
+- react-day-picker
+- leaflet-rails
+- geocoder
+- carrierwave
+- mini_magick
+- owlcarousel-rails
+- webpacker
+- jQuery
+- babel
 
 ## Getting Started
 
-- Clone the repository
+- Fork & Clone
 - Install the gems: 
 ```ruby
 bundle install
@@ -53,7 +54,18 @@ bundle install
 npm install
 ```
 
-- Default port: 3000
+- Create and load database:
+```js
+rails db:reset
+```
+
+- Run the server:
+```js
+rails s
+```
+
+- Visit http://localhost:3000/
+
 
 ## Project Team <a id=“team”>
 
