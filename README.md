@@ -1,4 +1,4 @@
-# Paw 2 Paw app
+# Paw 2 Paw 
 
 !["Paw 2 Paw App - GIF1"](https://github.com/Mindyli1120/paw2paw/blob/readme/document/paw2paw-1.gif?raw=true)
 
