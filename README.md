@@ -43,13 +43,21 @@ Pet owners can use Paw 2 Paw to find reliable sitters nearby. Sitters can accept
 ## Getting Started
 
 - Clone the repository
-- Install the dependencies: bundel install
-- Install the dependencies: npm install/yarn add
+- Install the gems: 
+```ruby
+bundle install
+```
+
+- Install the dependencies: 
+```js
+npm install
+```
+
 - Default port: 3000
 
-## Project Team
+## Project Team <a id=“team”>
 
-- Laura Tan (https://github.com/lauratan)
-- Carmen Shing (https://github.com/cshing)
-- Mindy Li (https://github.com/Mindyli1120)
+- [Laura Tan] (https://github.com/lauratan)
+- [Carmen Shing] (https://github.com/cshing)
+- [Mindy Li] (https://github.com/Mindyli1120)
 
