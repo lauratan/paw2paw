@@ -57,7 +57,7 @@ npm install
 
 ## Project Team <a id=“team”>
 
-- [Laura Tan] (https://github.com/lauratan)
-- [Carmen Shing] (https://github.com/cshing)
-- [Mindy Li] (https://github.com/Mindyli1120)
+- [Laura Tan](https://github.com/lauratan)
+- [Carmen Shing](https://github.com/cshing)
+- [Mindy Li](https://github.com/Mindyli1120)
 
