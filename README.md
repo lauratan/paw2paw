@@ -20,44 +20,42 @@ Pet owners can use Paw 2 Paw to find reliable sitters nearby. Sitters can accept
 
 ## Technical Information/ Stack
 
-  Paw 2 Paw is a full stack web app, built with the following:
-  - Ruby on Rails
-  - PostgreSQL
-  - React
-  - Bootstrap
-  - SASS
+Paw 2 Paw is a full stack web app, built with the following:
+- Ruby on Rails
+- PostgreSQL
+- React
+- Bootstrap
+- SASS
 
-## Gems / Dependencies
-  - react-rails
-  - react-day-picker
-  - leaflet-rails
-  - geocoder
-  - carrierwave
-  - mini_magick
-  - owlcarousel-rails
-  - webpacker
-  - jQuery
-  - babel
+## Gems
+- ruby 2.5.0
+- rails 5.2.0
+- react-rails 2.4.6
+- leaflet-rails 1.3.1
+- geocoder 1.4.9
+- carrierwave 1.2.3
+- mini_magick 4.8.0
+- owlcarousel-rails 2.2.3.5
+- bcrypt 3.1.12
+- bootstrap-sass 3.3.7
+- webpacker 3.5.5
+- jquery-rails 4.3.3
+- babel-source 5.8.35
 
 ## Dependencies
-
-- Rails 5.2.0
-- ruby  2.5.0
+- react 16.4.2
+- react-day-picker 7.1.10
+- react_ujs 2.4.4
+- @rails/webpacker 3.5
+- babel-preset-react 6.24.1
 
 ## Getting Started
 
-- Clone the repository
-- Install the gems: 
-```ruby
-bundle install
-```
-
-- Install the dependencies: 
-```js
-npm install
-```
-
-- Default port: 3000
+1. Clone the repository
+2. Install the gems: `bundle install`
+3. Install the dependencies: `npm install`
+4. Run and load database: `rails db:reset`
+5. Visit default port: <http://localhost:3000/>
 
 ## Project Team <a id=“team”>
 
