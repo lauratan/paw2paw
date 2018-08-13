@@ -18,7 +18,7 @@ Pet owners can use Paw 2 Paw to find reliable sitters nearby. Sitters can accept
 - Sitters can choose to accept or reject incoming booking request.
 - Sitters can add availabities and edit their profiles.
 
-## Technical Information/ Stack
+## Technical Information / Stack
 
 Paw 2 Paw is a full stack web app, built with the following:
 - Ruby on Rails
