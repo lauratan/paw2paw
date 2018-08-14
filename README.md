@@ -54,7 +54,7 @@ Paw 2 Paw is a full stack web app, built with the following:
 1. Clone the repository
 2. Install the gems: `bundle install`
 3. Install the dependencies: `npm install`
-4. Run and load database: `rails db:reset`
+4. Run and load database: `rails db:setup`
 5. Visit default port: <http://localhost:3000/>
 
 ## Project Team <a id=“team”>
